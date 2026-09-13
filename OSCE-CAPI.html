@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rangkuman OSCE Mata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,650&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* base — soft lilac paper, plush white cards */
+    --paper:#F6F1FA;
+    --paper-raised:#FFFFFF;
+    --ink:#4A4159;
+    --ink-soft:#948BA3;
+    --line:#EAE0F3;
+
+    /* brand — dusty orchid, the "iris" of the page */
+    --brand:#B79CDB;
+    --brand-deep:#7C5AA8;
+    --brand-bg:#F1E9FB;
+
+    /* category palette, inspired by iris colours */
+    --teal:#8FD9C9;          /* seafoam — mata merah + tetap */
+    --teal-deep:#3E9481;
+    --rust:#F2A6A0;          /* coral blush — mata merah + turun / emergency */
+    --rust-deep:#C05F52;
+    --indigo:#A9C3F5;        /* periwinkle sky — mata tenang + perlahan */
+    --indigo-deep:#5678C4;
+    --mustard:#F6CE84;       /* honey butter — lain-lain */
+    --mustard-deep:#B4832A;
+
+    --amber-bg:#FDF1DC;
+    --emergency-bg:#FCE9E6;
+    --success-bg:#E1F3E6;
+    --success-deep:#3F8F5A;
+
+    --shadow-soft: 0 8px 20px -8px rgba(124,90,168,0.18);
+    --shadow-lift: 0 14px 28px -10px rgba(124,90,168,0.28);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(560px 320px at 8% -6%, rgba(169,195,245,0.35), transparent 60%),
+      radial-gradient(520px 300px at 96% 4%, rgba(246,206,132,0.28), transparent 60%),
+      radial-gradient(600px 360px at 50% 120%, rgba(143,217,201,0.22), transparent 60%),
+      var(--paper);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif; font-optical-sizing:auto;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+
+  /* ---------- Header ---------- */
+  header.top{
+    padding:32px 18px 22px;
+    max-width:760px;
+    margin:0 auto;
+    position:relative;
+  }
+  .eyemark-wrap{
+    width:56px; height:56px;
+    border-radius:18px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+    background:linear-gradient(140deg, var(--brand-bg) 0%, var(--indigo) 55%, var(--teal) 100%);
+    box-shadow:var(--shadow-soft);
+  }
+  .eyemark{
+    width:30px;height:30px;
+  }
+  header.top h1{
+    font-size:1.9rem;
+    font-weight:650;
+    margin:0 0 8px;
+    color:var(--brand-deep);
+    letter-spacing:-0.01em;
+  }
+  header.top p.sub{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:0.96rem;
+    max-width:52ch;
+    line-height:1.6;
+  }
+
+  /* ---------- Mode switch ---------- */
+  .mode-bar{
+    position:sticky; top:0; z-index:30;
+    background:rgba(246,241,250,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:12px 18px;
+  }
+  .mode-bar-inner{
+    max-width:760px; margin:0 auto;
+    display:flex; gap:6px;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:4px;
+  }
+  .mode-btn{
+    flex:1;
+    padding:9px 6px;
+    border-radius:999px;
+    border:1px solid transparent;
+    background:transparent;
+    color:var(--ink-soft);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:0.8rem;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .mode-btn.active{
+    background:var(--brand-deep);
+    border-color:var(--brand-deep);
+    color:#fff;
+  }
+
+  main{max-width:760px; margin:0 auto; padding:18px;}
+
+  /* ---------- Read mode: search + filters ---------- */
+  .search-row{
+    display:flex; gap:8px; margin-bottom:14px;
+  }
+  .search-row input{
+    flex:1;
+    padding:13px 18px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    color:var(--ink);
+    box-shadow:var(--shadow-soft);
+  }
+  .search-row input:focus{outline:2px solid var(--brand);}
+
+  .chip-row{
+    display:flex; gap:6px; overflow-x:auto;
+    padding-bottom:14px; margin-bottom:6px;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .chip-row::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:0 0 auto;
+    padding:7px 13px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .chip.active{
+    color:#fff;
+  }
+  .chip[data-cat="turun"].active{background:var(--rust-deep); border-color:var(--rust-deep);}
+  .chip[data-cat="tetap"].active{background:var(--teal-deep); border-color:var(--teal-deep);}
+  .chip[data-cat="perlahan"].active{background:var(--indigo-deep); border-color:var(--indigo-deep);}
+  .chip[data-cat="lain"].active{background:var(--mustard-deep); border-color:var(--mustard-deep);}
+  .chip[data-cat="all"].active{background:var(--brand-deep); border-color:var(--brand-deep);}
+  .chip{transition:background .15s ease, color .15s ease, transform .15s ease;}
+  .chip:hover{transform:translateY(-1px);}
+
+  .cat-heading{
+    font-size:0.78rem;
+    text-transform:none;
+    color:var(--ink-soft);
+    font-weight:600;
+    margin:22px 0 8px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* ---------- Disease card ---------- */
+  .card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-left:5px solid var(--line);
+    border-radius:18px;
+    margin-bottom:12px;
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    transition:box-shadow .2s ease, transform .2s ease, border-left-color .2s ease;
+  }
+  .card[data-cat="turun"]{border-left-color:var(--rust);}
+  .card[data-cat="tetap"]{border-left-color:var(--teal);}
+  .card[data-cat="perlahan"]{border-left-color:var(--indigo);}
+  .card[data-cat="lain"]{border-left-color:var(--mustard);}
+  .card:hover{box-shadow:var(--shadow-lift); transform:translateY(-2px);}
+  .card-head{
+    display:flex; align-items:center; gap:10px;
+    padding:16px 18px;
+    cursor:pointer;
+  }
+  .card-head .no{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    flex:0 0 22px;
+  }
+  .card-head .title{flex:1; min-width:0;}
+  .card-head .title h3{
+    font-size:1.05rem; margin:0 0 2px; font-weight:600;
+    color:var(--ink);
+  }
+  .card-head .title .desc{
+    font-size:0.82rem; color:var(--ink-soft);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .card-head .chev{
+    flex:0 0 auto;
+    width:20px;height:20px;
+    color:var(--ink-soft);
+    transition:transform .2s ease;
+  }
+  .card.open .card-head .chev{transform:rotate(180deg);}
+  .card-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .card.open .card-body{max-height:4000px;}
+  .card-body-inner{
+    padding:0 16px 18px;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+  }
+
+  .badge-rujuk{
+    display:inline-block;
+    background:var(--emergency-bg);
+    color:var(--rust-deep);
+    font-size:0.72rem;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:999px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+
+  .sec-label{
+    font-size:0.72rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--brand-deep);
+    margin:16px 0 6px;
+  }
+  .sec-label:first-child{margin-top:0;}
+
+  .anam-grid{
+    display:grid;
+    grid-template-columns:52px 1fr;
+    gap:5px 10px;
+    font-size:0.88rem;
+  }
+  .anam-grid .k{color:var(--ink-soft); font-weight:600;}
+  .anam-grid .v{color:var(--ink);}
+
+  .exam-list{list-style:none; margin:0; padding:0; font-size:0.88rem;}
+  .exam-list li{
+    padding:5px 0;
+    border-bottom:1px dashed var(--line);
+    display:grid; grid-template-columns:110px 1fr; gap:8px;
+  }
+  .exam-list li:last-child{border-bottom:none;}
+  .exam-list .k{color:var(--ink-soft); font-weight:600;}
+
+  .dd-chips{display:flex; flex-wrap:wrap; gap:6px;}
+  .dd-chip{
+    background:var(--amber-bg);
+    color:var(--mustard-deep);
+    font-size:0.78rem; font-weight:600;
+    padding:4px 10px; border-radius:999px;
+  }
+
+  .terapi-block{font-size:0.86rem;}
+  .terapi-block .rx{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.8rem;
+    background:var(--brand-bg);
+    border-left:3px solid var(--brand);
+    padding:6px 10px;
+    margin:5px 0;
+    border-radius:0 6px 6px 0;
+    white-space:pre-wrap;
+  }
+  .terapi-block .plain{margin:5px 0;}
+  .terapi-block .rujuk-line{
+    color:var(--rust-deep); font-weight:700;
+    margin:8px 0 4px;
+  }
+
+  ul.eduk{margin:0; padding-left:18px; font-size:0.86rem;}
+  ul.eduk li{margin-bottom:3px;}
+
+  .note-incomplete{
+    font-size:0.85rem; color:var(--ink-soft); font-style:italic;
+  }
+
+  .empty-state{
+    text-align:center; padding:40px 20px; color:var(--ink-soft);
+  }
+
+  /* ---------- Flashcard mode ---------- */
+  .flash-wrap{
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+    padding:10px 0 30px;
+  }
+  .flash-progress{font-size:0.82rem; color:var(--ink-soft); font-weight:600;}
+  .flash-scene{
+    width:100%; max-width:420px; height:340px;
+    perspective:1400px;
+  }
+  .flash-card{
+    position:relative; width:100%; height:100%;
+    transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.2,.9,.3,1);
+    cursor:pointer;
+  }
+  .flash-card.flipped{transform:rotateY(180deg);}
+  .flash-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border-radius:22px;
+    padding:26px 22px;
+    display:flex; flex-direction:column;
+    border:1px solid var(--line);
+    overflow-y:auto;
+    box-shadow:var(--shadow-lift);
+  }
+  .flash-front{
+    background:var(--paper-raised);
+    justify-content:center;
+  }
+  .flash-front .tag{
+    font-size:0.72rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.04em; color:var(--brand-deep); margin-bottom:12px;
+  }
+  .flash-front .clue{font-size:1.02rem; line-height:1.55;}
+  .flash-front .clue b{color:var(--ink);}
+  .flash-front .hint{
+    margin-top:16px; font-size:0.78rem; color:var(--ink-soft);
+    text-align:center;
+  }
+  .flash-back{
+    background:linear-gradient(155deg, var(--brand-deep), #5C4483);
+    color:#fff;
+    transform:rotateY(180deg);
+  }
+  .flash-back h3{margin:0 0 6px; font-size:1.3rem;}
+  .flash-back .desc{font-size:0.88rem; opacity:0.85; margin-bottom:12px;}
+  .flash-back .mini-label{
+    font-size:0.7rem; text-transform:uppercase; letter-spacing:0.04em;
+    opacity:0.7; margin:10px 0 3px;
+  }
+  .flash-back .mini-content{font-size:0.85rem; opacity:0.95;}
+  .flash-controls{display:flex; gap:10px;}
+  .flash-controls button{
+    padding:12px 20px; border-radius:999px; border:1px solid var(--line);
+    background:var(--paper-raised); font-weight:600; font-size:0.88rem;
+    cursor:pointer; font-family:'Inter',sans-serif; color:var(--ink);
+    box-shadow:var(--shadow-soft); transition:transform .15s ease;
+  }
+  .flash-controls button:hover{transform:translateY(-1px);}
+  .flash-controls button.primary{
+    background:var(--brand-deep); color:#fff; border-color:var(--brand-deep);
+  }
+
+  /* ---------- Quiz mode ---------- */
+  .quiz-wrap{padding:6px 0 30px;}
+  .quiz-score{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.85rem; color:var(--ink-soft); margin-bottom:14px; font-weight:600;
+  }
+  .quiz-score .num{color:var(--brand-deep); font-size:1rem;}
+  .quiz-q{
+    background:var(--paper-raised); border:1px solid var(--line);
+    border-radius:18px; padding:22px; margin-bottom:16px;
+    box-shadow:var(--shadow-soft);
+  }
+  .quiz-q .qtag{font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;}
+  .quiz-q p{margin:0; font-size:1rem; line-height:1.55;}
+  .quiz-exam-wrap{margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);}
+  .quiz-exam-label{font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--brand-deep); margin-bottom:6px;}
+  .quiz-exam-wrap .exam-list li{grid-template-columns:96px 1fr;}
+  .quiz-options{display:flex; flex-direction:column; gap:8px;}
+  .opt-btn{
+    text-align:left;
+    padding:14px 16px; border-radius:14px;
+    border:1px solid var(--line); background:var(--paper-raised);
+    font-family:'Inter',sans-serif; font-size:0.92rem; color:var(--ink);
+    cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .opt-btn:not(:disabled):hover{transform:translateY(-1px); box-shadow:var(--shadow-soft);}
+  .opt-btn.correct{background:var(--success-bg); border-color:#8FCB9E; color:var(--success-deep);}
+  .opt-btn.wrong{background:var(--emergency-bg); border-color:var(--rust-deep); color:var(--rust-deep);}
+  .opt-btn:disabled{cursor:default;}
+  .quiz-explain{
+    margin-top:14px; padding:14px; background:var(--amber-bg);
+    border-radius:14px; font-size:0.86rem; display:none;
+  }
+  .quiz-explain.show{display:block;}
+  .quiz-next{
+    margin-top:14px; width:100%; padding:14px; border-radius:999px; border:none;
+    background:var(--brand-deep); color:#fff; font-weight:700; font-size:0.92rem;
+    cursor:pointer; display:none; box-shadow:var(--shadow-soft);
+  }
+  .quiz-next.show{display:block;}
+
+  /* ---------- Resep mode ---------- */
+  .resep-wrap{padding:6px 0 30px;}
+  .resep-dx{font-weight:700; font-size:1.05rem; color:var(--brand-deep); margin:0 0 8px;}
+  .resep-textarea{
+    width:100%; min-height:110px; box-sizing:border-box;
+    border:1px solid var(--line); border-radius:14px; padding:14px;
+    font-family:'IBM Plex Mono',monospace; font-size:0.85rem; color:var(--ink);
+    background:var(--paper-raised); resize:vertical; line-height:1.5;
+    box-shadow:var(--shadow-soft);
+  }
+  .resep-textarea:focus{outline:2px solid var(--brand);}
+  .resep-hint{font-size:0.78rem; color:var(--ink-soft); margin:6px 0 0;}
+  .resep-submit{
+    margin-top:12px; width:100%; padding:14px; border-radius:999px; border:none;
+    background:var(--brand-deep); color:#fff; font-weight:700; font-size:0.92rem; cursor:pointer; box-shadow:var(--shadow-soft);
+  }
+  .resep-submit:disabled{opacity:0.5; cursor:default;}
+  .resep-feedback{margin-top:16px; display:none;}
+  .resep-feedback.show{display:block;}
+  .resep-verdict{font-weight:700; font-size:0.92rem; padding:11px 14px; border-radius:14px; margin-bottom:12px;}
+  .resep-verdict.good{background:var(--success-bg); color:var(--success-deep);}
+  .resep-verdict.mid{background:var(--amber-bg); color:var(--mustard-deep);}
+  .resep-verdict.bad{background:var(--emergency-bg); color:var(--rust-deep);}
+  .resep-drug-block{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px;
+    padding:10px 12px; margin-bottom:8px;
+  }
+  .resep-drug-block .dname{font-weight:600; font-size:0.86rem; margin-bottom:5px; color:var(--ink);}
+  .resep-kw-list{list-style:none; margin:0; padding:0; font-size:0.82rem;}
+  .resep-kw-list li{padding:2px 0; display:flex; gap:6px; align-items:flex-start;}
+  .resep-kw-list li.ok{color:var(--success-deep);}
+  .resep-kw-list li.miss{color:var(--rust-deep);}
+  .resep-correct-label{
+    font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;
+    color:var(--brand-deep); margin:16px 0 6px;
+  }
+  .resep-next{
+    margin-top:14px; width:100%; padding:14px; border-radius:999px; border:none;
+    background:var(--brand-deep); color:#fff; font-weight:700; font-size:0.92rem;
+    cursor:pointer; display:none; box-shadow:var(--shadow-soft);
+  }
+  .resep-next.show{display:block;}
+
+  footer{
+    text-align:center; padding:30px 18px 50px;
+    font-size:0.78rem; color:var(--ink-soft);
+  }
+
+  @media (min-width:640px){
+    header.top h1{font-size:2rem;}
+    .flash-scene{height:380px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="eyemark-wrap">
+    <svg class="eyemark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 20C7 10 15 6 20 6C25 6 33 10 38 20C33 30 25 34 20 34C15 34 7 30 2 20Z" stroke="var(--brand-deep)" stroke-width="2"/>
+      <circle cx="20" cy="20" r="6.5" fill="var(--brand-deep)"/>
+      <circle cx="22.2" cy="17.6" r="1.8" fill="#FBF8FE"/>
+    </svg>
+  </div>
+  <h1>Rangkuman OSCE Mata</h1>
+  <p class="sub">Kompilasi 25 kasus stase Ilmu Kesehatan Mata — anamnesis, pemeriksaan, diagnosis banding, terapi &amp; resep, hingga edukasi. Lengkap dengan mode flashcard dan kuis untuk latihan cepat.</p>
+</header>
+
+<div class="mode-bar">
+  <div class="mode-bar-inner">
+    <button class="mode-btn active" data-mode="baca">Baca</button>
+    <button class="mode-btn" data-mode="flash">Flashcard</button>
+    <button class="mode-btn" data-mode="kuis">Kuis</button>
+    <button class="mode-btn" data-mode="resep">Resep</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===================== BACA MODE ===================== -->
+  <section id="view-baca">
+    <div class="search-row">
+      <input id="searchInput" type="text" placeholder="Cari penyakit, gejala, atau obat...">
+    </div>
+    <div class="chip-row" id="chipRow">
+      <div class="chip active" data-cat="all">Semua</div>
+      <div class="chip" data-cat="turun">Merah + Visus Turun</div>
+      <div class="chip" data-cat="tetap">Merah + Visus Tetap</div>
+      <div class="chip" data-cat="perlahan">Tenang + Turun Perlahan</div>
+      <div class="chip" data-cat="lain">Lain-lain</div>
+    </div>
+    <div id="cardList"></div>
+    <div id="emptyState" class="empty-state" style="display:none;">Tidak ada hasil. Coba kata kunci lain.</div>
+  </section>
+
+  <!-- ===================== FLASHCARD MODE ===================== -->
+  <section id="view-flash" style="display:none;">
+    <div class="flash-wrap">
+      <div class="flash-progress" id="flashProgress">Kartu 1 / 25</div>
+      <div class="flash-scene">
+        <div class="flash-card" id="flashCard">
+          <div class="flash-face flash-front">
+            <div class="tag" id="flashCatTag">Kategori</div>
+            <div class="clue" id="flashClue">Memuat...</div>
+            <div class="hint">Ketuk kartu untuk lihat jawaban</div>
+          </div>
+          <div class="flash-face flash-back">
+            <h3 id="flashName"></h3>
+            <div class="desc" id="flashDesc"></div>
+            <div class="mini-label">Terapi kunci</div>
+            <div class="mini-content" id="flashTerapi"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flash-controls">
+        <button id="flashPrev">← Sebelumnya</button>
+        <button class="primary" id="flashShuffle">Acak</button>
+        <button id="flashNext">Berikutnya →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KUIS MODE ===================== -->
+  <section id="view-kuis" style="display:none;">
+    <div class="quiz-wrap">
+      <div class="quiz-score">
+        <span>Soal <span class="num" id="quizCount">1</span> / <span id="quizTotal">15</span></span>
+        <span>Skor: <span class="num" id="quizScore">0</span></span>
+      </div>
+      <div class="quiz-q">
+        <div class="qtag">Tebak diagnosis dari klinis berikut</div>
+        <p id="quizClue">Memuat soal...</p>
+        <div class="quiz-exam-wrap" id="quizExamWrap" style="display:none;">
+          <div class="quiz-exam-label">Pemeriksaan mata</div>
+          <ul class="exam-list" id="quizExam"></ul>
+        </div>
+      </div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-explain" id="quizExplain"></div>
+      <button class="quiz-next" id="quizNextBtn">Soal berikutnya →</button>
+    </div>
+  </section>
+
+  <!-- ===================== RESEP MODE ===================== -->
+  <section id="view-resep" style="display:none;">
+    <div class="resep-wrap">
+      <div class="quiz-score">
+        <span>Soal <span class="num" id="resepCount">1</span> / <span id="resepTotal">10</span></span>
+        <span>Skor rata-rata: <span class="num" id="resepScore">–</span></span>
+      </div>
+      <div class="quiz-q">
+        <div class="qtag">Tulis resep untuk kasus berikut</div>
+        <p class="resep-dx" id="resepDxName"></p>
+        <p id="resepClue"></p>
+        <div class="quiz-exam-wrap" id="resepExamWrap" style="display:none;">
+          <div class="quiz-exam-label">Pemeriksaan mata</div>
+          <ul class="exam-list" id="resepExam"></ul>
+        </div>
+      </div>
+      <textarea class="resep-textarea" id="resepInput" placeholder="Tulis resep di sini, contoh:&#10;R/ Chloramphenicol 1% ED No. I&#10;S 4 dd gtt 1 OD/OS/ODS"></textarea>
+      <p class="resep-hint" id="resepHint">Tulis nama obat, konsentrasi/dosis, aturan pakai (dd), dan rute (OD/OS/ODS) sebisa mungkin. Boleh lebih dari satu R/.</p>
+      <button class="resep-submit" id="resepCheckBtn">Cek Resep</button>
+      <div class="resep-feedback" id="resepFeedback"></div>
+      <button class="resep-next" id="resepNextBtn">Soal berikutnya →</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Rangkuman OSCE Mata · disusun dari kompilasi catatan ketua mata bellatrix ayu prastowo yang imupp.<br>
+  Materi untuk belajar — selalu konfirmasi dosis &amp; tatalaksana dengan pedoman terbaru &amp; supervisor.
+</footer>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const CATS = {
+  turun:    {label:"Mata Merah + Visus Turun",         color:"var(--rust)"},
+  tetap:    {label:"Mata Merah + Visus Tetap",          color:"var(--teal)"},
+  perlahan: {label:"Mata Tenang + Visus Turun Perlahan",color:"var(--indigo)"},
+  lain:     {label:"Kelopak, Lakrimal & Lain-lain",     color:"var(--mustard)"}
+};
+
+const DATA = [
+{id:"herpes-keratitis", cat:"turun", no:1, name:"Herpes Simplex Keratitis", desc:"Keradangan kornea akibat virus herpes simplex",
+ anam:{KU:"Mata merah", KT:"Fotofobia, epifora, penurunan penglihatan", RPS:"Mata kabur, berair, silau; saat melihat cahaya lebih suka di ruang gelap", RPD:"Dahulu pernah herpes di bagian lain (mis. mulut)", RPK:"-/+", RPO:"-/+", RSE:"-/+"},
+ exam:[["Visus","Menurun"],["Palpebra","Terdapat lepuhan folikuler"],["Kornea","Sensibilitas turun, keratitis punctata difusa, dendritic ulcer"],["BMD","Baik"],["Pupil / Iris","Baik"],["Preaurikular","Limfadenopati"],["Florescein","(+) dendritic ulcer"],["Scrapping & Giemsa","Multinucleated giant cell"],["Sensibilitas kornea","Menurun"],["Tzank smear","(+)"]],
+ dd:["Keratitis bakterial","Keratitis jamur","Ulkus kornea"],
+ rujuk:true,
+ terapi:[{t:"rx", v:"R/ Acyclovir ophthalmic ointment 3% tube No. I\nS 5 dd ue 1 OD/OS/ODS"},{t:"plain", v:"RUJUK — keratoplasti untuk menghilangkan virus di kornea"}],
+ eduk:["Jelaskan penyakit pasien","Cara pakai obat: dioleskan, bukan langsung dari tube","Cuci tangan sebelum & sesudah pakai obat","Jangan berbagi handuk dengan orang lain"]},
+
+{id:"keratitis", cat:"turun", no:2, name:"Keratitis (Bakteri · Jamur · Acanthamoeba)", desc:"Keradangan kornea oleh berbagai etiologi",
+ anam:{KU:"Mata merah, nyeri", KT:"Fotofobia, epifora, penurunan penglihatan", RPS:"Mata kabur, berair, silau; lebih suka ruang gelap", RPD:"Dahulu pernah herpes di bagian lain", RPK:"-/+", RPO:"-/+", RSE:"Bakteri: higiene buruk / imunokompromais · Jamur: kegores tanaman / ekor hewan · Virus: imunokompromais · Acanthamoeba: lensa kontak / berenang"},
+ exam:[["Visus","Menurun"],["Palpebra","Edema"],["Konjungtiva","Hiperemi"],["Kornea","Pseudomonas: mukopurulen hijau + hipopion · Streptococcus: abu-abu/putih/kuning · Jamur: infiltrat putih tepi berbulu · Acanthamoeba: ring shape infiltrate"],["BMD","Hipopion (-/+)"],["Florescein","(+)"],["Seidel test","(-/+)"],["Penunjang","Scrapping & Giemsa (bakteri) · KOH (jamur) · Calcofluor white (acanthamoeba)"]],
+ dd:["Ulkus kornea","Uveitis anterior"],
+ terapi:[{t:"plain", v:"Bakteri:"},{t:"rx", v:"R/ Levofloxacin 0,5% ED No. I\nS 6 dd gtt 1 OD/OS/ODS"},{t:"plain", v:"Jamur:"},{t:"rx", v:"R/ Natamycin 5% ED fls No. I\nS 6 dd gtt 1 (Aspergillus)"},{t:"rx", v:"R/ Amphotericin B 0,15% ED fls No. I\nS 1 dd gtt 1 o.h selama 48 jam (Candida)"},{t:"plain", v:"Acanthamoeba:"},{t:"rx", v:"R/ Chlorhexidine 0,02% ED fls No. I\nS gtt 1 o.h OD/OS/ODS selama 2–3 hari"}],
+ eduk:["Jelaskan penyakit pasien","Cara pakai obat dioleskan, bukan langsung dari tube","Cuci tangan sebelum & sesudah pakai obat","Jangan berbagi handuk dengan orang lain"]},
+
+{id:"ulkus-kornea", cat:"turun", no:3, name:"Ulkus Kornea", desc:"Hilangnya jaringan kornea sebagian akibat keradangan",
+ anam:{KU:"Mata merah", KT:"Fotofobia, epifora, penurunan penglihatan", RPS:"Mata kabur, berair, silau, nyeri hebat saat melihat cahaya", RPD:"-/+", RPK:"-/+", RPO:"-/+", RSE:"-/+"},
+ exam:[["Visus","Menurun"],["Palpebra","DBN"],["Konjungtiva","Hiperemi"],["Kornea","Ulkus (+), infiltrat (+)"],["BMD","Hipopion (+)"],["Pupil / Iris","DBN"],["Florescein","(+)"],["Seidel test","(+)"]],
+ dd:["Keratitis","Uveitis anterior"],
+ terapi:[{t:"rx", v:"R/ Levofloxacin 0,5% ED No. I\nS 6 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jelaskan penyakit pasien","Cara pakai obat & jeda antar tetes","Cuci tangan sebelum & sesudah pakai obat","Kontrol rutin untuk evaluasi"]},
+
+{id:"uveitis-anterior", cat:"turun", no:4, name:"Uveitis Anterior", desc:"Keradangan iris, badan siliaris, dan bilik mata depan",
+ anam:{KU:"Mata merah dan nyeri", KT:"Epifora, fotofobia, blefarospasme", RPS:"Penglihatan kabur perlahan, berair, silau, nyeri terutama malam hari (ngilu)", RPD:"Rematik, autoimun, SLE", RPK:"-/+", RPO:"-/+", RSE:"-/+"},
+ exam:[["Visus","Menurun"],["Konjungtiva","Hiperemi perikorneal, kemosis"],["Kornea","Edema, keratic precipitate"],["BMD","Aqueous cell, aqueous flare, hipopion"],["Iris","Edema, warna pucat, sinekia posterior, koeppe/busacca nodule"],["Pupil","Miosis, ireguler, tertutup eksudat"],["TIO","Normal"],["Florescein","Negatif (kelainan di endotel)"]],
+ dd:["Konjungtivitis akut","Glaukoma akut"],
+ terapi:[{t:"plain", v:"Non-medikamentosa: kompres hangat, kacamata hitam"},{t:"rx", v:"R/ Sulfas Atropin 1% ED fl. No. I\nS 3 dd gtt 1 OD/OS/ODS"},{t:"rx", v:"R/ Prednisolone Acetate 1% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jelaskan penyakit pasien","Cara pakai obat beserta jedanya","Cuci tangan sebelum & sesudah pakai obat","Kontrol mata rutin untuk evaluasi"]},
+
+{id:"trauma-asam-basa", cat:"turun", no:5, name:"Trauma Asam / Basa", desc:"Rudapaksa mata akibat bahan kimia asam atau basa",
+ anam:{KU:"Mata merah, nyeri", KT:"Nyeri, penglihatan buram, silau", RPS:"Terkena percikan bahan kimia, perih, sulit membuka mata, rasa mengganjal", RPD:"-/+", RPK:"-/+", RPO:"-/+", RSE:"Tidak menggunakan kacamata kerja"},
+ exam:[["Visus","Menurun"],["Palpebra","Edema, hiperemi"],["Konjungtiva","Hiperemi, kemosis"],["Kornea","Edema, keruh"],["Kertas lakmus","pH tergantung zat kimia"],["TIO","Naik / turun"],["Slit lamp","Cek segmen anterior & luka"]],
+ dd:["Trauma asam","Trauma basa","Trauma benda tumpul","Keratitis","Uveitis anterior"],
+ rujuk:true,
+ terapi:[{t:"plain", v:"1. Anestesi lokal  2. Irigasi hilangkan kontak  3. Irigasi NaCl 0,9% minimal 1 L/mata — asam 30 menit, basa 60 menit  4. Cek pH (normal 7,3)  5. Ulangi irigasi & cek pH tiap 15 menit bila belum netral  6. Nilai visus  7. RUJUK"},{t:"rx", v:"R/ Sulfas Atropin 1% ED fl. No. I\nS 3 dd gtt 1 OD/OS/ODS"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jelaskan penyakit & cara pakai obat","Cuci tangan sebelum & sesudah pakai obat","Kontrol rutin untuk evaluasi","Anjurkan APD saat bekerja dengan bahan kimia","Prognosis bergantung jenis bahan, konsentrasi, lama kontak, kecepatan irigasi, dan kerusakan kornea/limbus"]},
+
+{id:"hifema", cat:"turun", no:6, name:"Hifema Traumatik", desc:"Akumulasi darah di bilik mata depan akibat trauma, potensi glaukoma sekunder",
+ anam:{KU:"Mata merah", KT:"Nyeri, penglihatan kabur, silau", RPS:"Terkena bola (mis. kasti), nyeri, bayangan merah/gelap, silau, mual muntah", RPD:"-/+", RPK:"-/+", RPO:"-/+", RSE:"Pekerjaan/olahraga dengan risiko benturan bola"},
+ exam:[["Visus","Menurun bila darah >setengah BMD"],["Palpebra","Edema"],["Konjungtiva","Hiperemi perikorneal"],["Kornea","Abrasi (-/+), warna kekuningan"],["BMD","Hifema"],["Iris","Iridoplegia, iridodialisis"],["Pupil","Normal / lonjong"],["TIO","Naik"],["Slit lamp","Staging perdarahan"]],
+ dd:["Kontusio bulbi","Abrasi kornea","Trauma kimia"],
+ rujuk:true,
+ terapi:[{t:"plain", v:"Non-medikamentosa: bed rest, head-up 30°, eye patch"},{t:"rx", v:"R/ Paracetamol tab 500 mg No. X\nS 3 dd 1 tab p.c."},{t:"rx", v:"R/ Asam Tranexamat 500 mg Tab No. IX\nS 3 dd tab I"},{t:"rx", v:"R/ Sulfas Atropin 1% ED fl. No. I\nS 3 dd gtt 1 OD/OS/ODS"},{t:"rx", v:"R/ Asetazolamid 250 mg tab No. XXI\nS 3 dd tab I"},{t:"plain", v:"RUJUK Sp.M"}],
+ eduk:["Jelaskan penyakit pasien","Batasi aktivitas, hindari mengucek mata","Gunakan pelindung mata sesuai anjuran","Jangan mengangkat beban berat","Cara pakai obat beserta jedanya","Kontrol mata rutin"]},
+
+{id:"glaukoma-akut", cat:"turun", no:7, name:"Glaukoma Akut Sudut Tertutup", desc:"Tertutupnya sudut bilik mata depan akibat peningkatan TIO mendadak",
+ anam:{KU:"Mata merah, nyeri mendadak", KT:"Mual, muntah, silau, melihat seperti terowongan", RPS:"Pandangan tiba-tiba menyempit seperti terowongan, silau", RPD:"-/+", RPK:"Orang tua / saudara (+)", RPO:"-/+", RSE:"-/+"},
+ exam:[["Visus","Menurun, halo sign"],["Palpebra","Edema"],["Konjungtiva","Injeksi silier, kemosis"],["Kornea","Edema, keruh"],["BMD","Dangkal, sudut tertutup"],["Iris","Bombans"],["Pupil","Midriasis, refleks (-)"],["TIO","Naik"],["OCT","Grade 1–4"]],
+ rujuk:true,
+ terapi:[{t:"plain", v:"Non-medikamentosa: posisi supine"},{t:"rx", v:"R/ Inj. Acetazolamide 500 mg No. I — per IV (bila TIO > 50 mmHg)"},{t:"rx", v:"R/ Timolol maleate 0,5% ED fl. No. I\nS 2 dd gtt I OD"},{t:"rx", v:"R/ Prednisolone Acetate 1% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"},{t:"plain", v:"Setelah TIO < 40 mmHg:"},{t:"rx", v:"R/ Pilocarpine 2% ED fl. No. I\nS 4 dd gtt I OD/OS/ODS"},{t:"plain", v:"RUJUK — iridotomi / iridektomi"}],
+ eduk:["Jelaskan penyakit pasien","Batasi aktivitas, jangan angkat beban berat","Kontrol mata rutin"]},
+
+{id:"endoftalmitis", cat:"turun", no:8, name:"Endoftalmitis", desc:"Inflamasi struktur dalam bola mata (vitreus/humor)",
+ anam:{KU:"Mata merah, nyeri", KT:"Pandangan kabur, silau, berair", RPS:"Setelah operasi katarak: nyeri, merah, kabur, kadang silau", RPD:"Operasi katarak (-/+)", RPK:"-/+", RPO:"-/+", RSE:"-/+"},
+ exam:[["Visus","Menurun"],["Palpebra","Edema"],["Konjungtiva","Hiperemi"],["Kornea","Edema"],["BMD","Hipopion"],["Iris","Edema"],["Pupil","Yellow reflex"],["TIO","Meningkat"],["Funduskopi","Vitreus kabur"],["Kultur","Sesuai hasil"]],
+ terapi:[{t:"rx", v:"R/ Vancomycin 1 g No. II — per IV"},{t:"rx", v:"R/ Ceftazidime 2 g No. III — per IV"},{t:"plain", v:"Lanjutan:"},{t:"rx", v:"R/ Dexamethasone sodium phosphate 0,1% ED fl. No. I\nS 4 dd gtt I OD"},{t:"rx", v:"R/ Sulfas Atropin 1% ED fl. No. I\nS 3 dd gtt 1 OD/OS/ODS"},{t:"rx", v:"R/ Acetazolamide 250 mg tab No. XII\nS 3 dd 1 tab"}],
+ eduk:["Kegawatan pasca-operasi/trauma — evaluasi & terapi cepat penting"]},
+
+{id:"panoftalmitis", cat:"turun", no:9, name:"Panoftalmitis", desc:"Inflamasi seluruh bola mata hingga meluas ke orbita",
+ anam:{KU:"-", KT:"-", RPS:"Kelanjutan dari endoftalmitis berat", RPD:"-", RPK:"-", RPO:"-", RSE:"-"},
+ exam:[],
+ terapi:[{t:"rx", v:"R/ Vancomycin 1 mg/0,1 mL inj. No. I — injeksi intravitreal"},{t:"rx", v:"R/ Ceftazidime 2,25 mg/0,1 mL inj. No. I — injeksi intravitreal"},{t:"rx", v:"R/ Dexamethasone sodium phosphate 0,1% ED fl. No. I\nS 4 dd gtt I OD"}],
+ eduk:["Kegawatan mata — rujuk segera Sp.M vitreoretina"]},
+
+{id:"subconjunctival-bleeding", cat:"tetap", no:10, name:"Subconjunctival Bleeding", desc:"Pendarahan akibat pecahnya pembuluh darah antara konjungtiva & sklera",
+ anam:{KU:"Mata merah", KT:"Rasa mengganjal, tidak nyaman", RPS:"Terjadi setelah menyelam; merah, tidak nyaman, mengganjal", RPD:"Konjungtivitis (-/+)", RPK:"-/+", RPO:"-/+", RSE:"Operasi (-/+), pemakaian warfarin (-/+)"},
+ exam:[["Visus","Normal"],["Konjungtiva","Hiperemi (blok, berbatas tegas)"],["Lainnya","DBN"]],
+ dd:["Konjungtivitis akut"],
+ terapi:[{t:"plain", v:"Umumnya tidak perlu obat — self-limiting 1–2 minggu"},{t:"plain", v:"Kompres dingin 24 jam pertama (cegah perluasan), lalu kompres hangat"},{t:"plain", v:"Reassurance"},{t:"rx", v:"R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jelaskan bahwa kondisi ini tidak berbahaya & sembuh sendiri (1–2 minggu)","Hindari mengucek mata","Jangan mengangkat beban berat / mengejan","Kontrol tekanan darah bila ada hipertensi","Kontrol mata rutin"]},
+
+{id:"xerophthalmia", cat:"tetap", no:11, name:"Xerophthalmia", desc:"Gangguan akibat kekurangan vitamin A",
+ anam:{KU:"Susah melihat pada cahaya redup (buta senja)", KT:"Mata kering, sakit", RPS:"-", RPD:"-", RPK:"-", RPO:"-", RSE:"-"},
+ exam:[["Visus","Menurun saat gelap"],["Konjungtiva","Metaplasia keratinizing (X1A); bercak Bitot (X1B)"],["Kornea","Berkabut (X2); ulkus <1/3 (X3A); ulkus >1/3 (X3B); sikatriks (XS)"],["Funduskopi","Seperti cendol (XF)"],["Tes adaptasi gelap","(+)"]],
+ terapi:[{t:"plain", v:"Terapi gizi + Vitamin A dosis tinggi (< 1 th: kapsul biru 100.000 IU · 1–5 th: kapsul merah 200.000 IU)"},{t:"plain", v:"X1A:"},{t:"rx", v:"R/ Hydroxypropyl Methylcellulose 0,7% ED fl. No. I\nS 6 dd gtt I"},{t:"plain", v:"X2 / X3 / X3B:"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"},{t:"rx", v:"R/ Sulfas Atropin 1% ED fl. No. I\nS 3 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jelaskan penyakit pasien","Penyuluhan keluarga untuk meningkatkan konsumsi vitamin A","Berikan ASI eksklusif"]},
+
+{id:"kcs", cat:"tetap", no:12, name:"Keratokonjungtivitis Sicca", desc:"Keringnya permukaan kornea dan konjungtiva (mata kering)",
+ anam:{KU:"Kering, gatal", KT:"Merah, perih, silau", RPS:"Setelah bekerja di depan laptop: kering, perih, gatal, kadang berair", RPD:"Sjögren, sklerosis (-/+)", RPK:"-/+", RPO:"Lensa kontak (-/+)", RSE:"Menopause, lama menggunakan komputer"},
+ exam:[["Visus","Normal"],["Konjungtiva","Hiperemi, kering"],["Kornea","Kering"],["Schirmer test","(+) < 10 mm"]],
+ terapi:[{t:"plain", v:"Non-medikamentosa: kompres hangat, aturan 20-20-20"},{t:"rx", v:"R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jelaskan penyakit pasien","Terapkan aturan 20-20-20: tiap 20 menit, lihat 20 kaki selama 20 detik"]},
+
+{id:"episkleritis", cat:"tetap", no:13, name:"Episkleritis", desc:"Inflamasi episklera",
+ anam:{KU:"Mata merah pink", KT:"Kadang nyeri", RPS:"Merah setelah makan udang, tidak terlalu nyeri, tanpa sekret", RPD:"RA (-/+)", RPK:"-/+", RPO:"-/+", RSE:"-"},
+ exam:[["Visus","Normal"],["Konjungtiva / Kornea","Hiperemi"],["Tes fenilefrin","(+) memucat"]],
+ dd:["Skleritis"],
+ terapi:[{t:"plain", v:"Self-limiting, kompres dingin"},{t:"rx", v:"R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"}],
+ eduk:[]},
+
+{id:"skleritis", cat:"tetap", no:14, name:"Skleritis", desc:"Inflamasi sklera",
+ anam:{KU:"Mata merah kebiruan", KT:"Nyeri saat bergerak, silau", RPS:"Nyeri menjalar ke kepala/wajah sisi yang terkena", RPD:"RA (-/+)", RPK:"-/+", RPO:"-/+", RSE:"-"},
+ exam:[["Visus","Normal"],["Konjungtiva / Kornea","Hiperemi"],["Tes fenilefrin","(-) tidak memucat"]],
+ dd:["Episkleritis"],
+ terapi:[{t:"rx", v:"R/ Ketorolac tromethamine 0,5% ED fl. No. I\nS 4 dd gtt I OD"}],
+ eduk:[]},
+
+{id:"pterygium", cat:"tetap", no:15, name:"Pterygium", desc:"Penebalan konjungtiva bulbi bentuk segitiga ke arah kornea",
+ anam:{KU:"Mata merah", KT:"Mengganjal saat berkedip", RPS:"Melihat daging tumbuh di mata, mengganjal, mata kering", RPD:"-/+", RPK:"Ibu (+)", RPO:"-/+", RSE:"Petani, nelayan"},
+ exam:[["Visus","Normal, kecuali grade 4 (turun)"],["Konjungtiva","Hiperemi"],["Kornea","DBN kecuali grade 4 (jaringan fibrovaskular)"],["Probe/Sonde test","(-)"],["Slit lamp","Grading"]],
+ dd:["Pseudopterygium","Pinguekula","Keratitis marginal"],
+ rujuk:true,
+ terapi:[{t:"plain", v:"Non-farmako: kacamata anti-UV, pakai topi"},{t:"rx", v:"R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"},{t:"plain", v:"RUJUK — eksisi pterygium sesuai indikasi"}],
+ eduk:["Hindari paparan UV, debu, angin","Gunakan kacamata anti-UV dan topi saat di luar","Cara pakai obat beserta jedanya","Cuci tangan sebelum & sesudah pakai obat","Jelaskan kekambuhan bisa terjadi meski sudah operasi","Kontrol mata rutin"]},
+
+{id:"konjungtivitis", cat:"tetap", no:16, name:"Konjungtivitis", desc:"Infeksi konjungtiva (bakteri, virus, alergi, vernal, gonore, klamidia)",
+ anam:{KU:"Mata merah", KT:"Ngeres, sulit membuka mata, ada cairan", RPS:"Setelah pakai lensa kontak: ngeres, cairan (jernih/mukoid/mukopurulen/purulen), sulit buka mata saat bangun tidur", RPD:"Faringitis/common cold (virus); riwayat alergi", RPK:"-/+", RPO:"-/+", RSE:"Pakai lensa kontak, berbagi handuk"},
+ exam:[["Visus","Normal"],["Palpebra","Edema, hiperemi"],["Konjungtiva","Virus: jernih encer + folikel + gatal · Alergi: serous + papil · Vernal: serous + trantas dot · Bakteri/klamidia: mukopurulen + Herbert's pits · Gonore: purulen"],["Kornea","Ulkus (-/+)"],["Swab Giemsa","Bakteri (+)"],["Metilen blue","Gonore (+)"],["Kerokan konjungtiva","Sel eosinofil (alergi)"]],
+ terapi:[{t:"plain", v:"Bakteri:"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 6 dd gtt 1 OD/OS/ODS selama 3 hari"},{t:"plain", v:"Gonore:"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 1 gtt o.h OD/OS/ODS selama 2 hari"},{t:"rx", v:"R/ Inj. Ceftriaxone 1 g No. I — per IV"},{t:"rx", v:"R/ Azithromycin tab 500 mg No. II\nS 1 dd 2 tab p.o."},{t:"plain", v:"Klamidia:"},{t:"rx", v:"R/ Oxytetracycline 1% eye ointment No. I\nS 4 dd ue 1 OD/OS/ODS selama 3 minggu"},{t:"plain", v:"Alergi:"},{t:"rx", v:"R/ Sodium Cromoglycate 2% ED fl. No. I\nS 4 dd gtt I ODS"},{t:"rx", v:"R/ Cetirizine tab 10 mg No. X\nS 1 dd tab I p.o."},{t:"plain", v:"Virus:"},{t:"rx", v:"R/ Artificial tears ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"}],
+ eduk:["Jaga kebersihan tangan","Jangan pakai handuk bersama","Jangan mengucek mata","Hindari alergen","Cara pakai obat beserta jedanya","Kontrol mata rutin"]},
+
+{id:"corpus-alienum", cat:"tetap", no:17, name:"Corpus Alienum (Konjungtiva)", desc:"Benda asing masuk ke konjungtiva, dapat menyebabkan iritasi",
+ anam:{KU:"Mata merah, nyeri", KT:"Nyeri, silau", RPS:"Mata terkena benda asing, nyeri, silau", RPD:"-/+", RPK:"-/+", RPO:"-/+", RSE:"Tidak menggunakan alat pelindung mata"},
+ exam:[["Visus","Normal"],["Konjungtiva","Hiperemi, korpal (-/+)"],["Kornea","Korpal (-/+)"],["Florescein test","Kekeruhan (-/+)"],["Slit lamp","Evaluasi letak korpal"]],
+ dd:["Benda asing kornea","Konjungtivitis akut"],
+ terapi:[{t:"plain", v:"1. Eversi kelopak  2. Anestesi lokal  3. Irigasi  4. Slit lamp  5. Angkat korpal dengan lidi/spuit 1 cc 26G + povidone iodine  6. Angkat menjauhi kornea  7. Eye patch"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 12 dd gtt 1 OD/OS/ODS selama 2 hari"}],
+ eduk:["Jangan menggosok mata","Gunakan kacamata pelindung saat bekerja/berkendara","Kontrol mata rutin"]},
+
+{id:"katarak", cat:"perlahan", no:18, name:"Katarak", desc:"Kekeruhan pada lensa mata",
+ anam:{KU:"Pandangan buram", KT:"Silau", RPS:"Melihat seperti kabut, kenal bentuk wajah tapi tak jelas, lebih nyaman baca malam hari", RPD:"Diabetes (-/+)", RPK:"Katarak (-/+)", RPO:"-/+", RSE:"Paparan sinar UV, merokok"},
+ exam:[["Visus","Turun"],["Kornea","DBN"],["Lensa","Keruh"],["BMD","Dangkal / tidak"],["Iris","Shadow (-/+)"],["Pupil","Leukokoria"],["Funduskopi","Refleks fundus (-)"],["Slit lamp","Evaluasi luas, tebal, kekeruhan, kekerasan"],["TIO","Naik / turun"],["USG","Nilai retroorbital"]],
+ dd:["Katarak komplikata","Katarak traumatik","Ablasio retina","Kelainan refraksi","Glaukoma","AMD"],
+ rujuk:true,
+ terapi:[{t:"plain", v:"Kacamata koreksi sementara"},{t:"plain", v:"RUJUK — terapi definitif adalah operasi (fakoemulsifikasi)"}],
+ eduk:["Jelaskan katarak tidak hilang dengan obat/tetes mata","Operasi terutama bila sudah mengganggu aktivitas sehari-hari","Kontrol penyakit penyerta: diabetes & hipertensi","Anjurkan berhenti merokok","Kontrol mata berkala"]},
+
+{id:"glaukoma-kronis", cat:"perlahan", no:19, name:"Glaukoma Kronis Sudut Terbuka", desc:"Kerusakan nervus optikus progresif, sudut terbuka",
+ anam:{KU:"Penurunan penglihatan", KT:"Pusing", RPS:"Pandangan berubah bertahap menjadi seperti terowongan", RPD:"DM (-/+), miopia (-/+)", RPK:"-/+", RPO:"Steroid (-/+)", RSE:"Usia > 40 tahun"},
+ exam:[["Visus","Menurun, tunnel vision"],["Lensa","Tidak dangkal"],["TIO","Umumnya naik"],["Funduskopi","Cupping, bayoneting (pembuluh berkelok)"],["Gonioskopi","Menilai sudut (terbuka)"]],
+ terapi:[{t:"rx", v:"R/ Timolol maleate 0,5% ED fl. No. I\nS 2 dd gtt I OD/OS/ODS"},{t:"rx", v:"R/ Pilocarpine 2% ED fl. No. I\nS 4 dd gtt I OD/OS/ODS"},{t:"rx", v:"R/ Latanoprost 0,005% ED fl. No. I\nS 1 dd gtt I OD/OS/ODS"},{t:"rx", v:"R/ Asetazolamide tab 250 mg No. XII\nS 3 dd 1 tab"}],
+ eduk:["Kerusakan bersifat permanen — tujuan terapi mencegah perburukan","Patuh tetes seumur hidup & kontrol rutin"]},
+
+{id:"miopia", cat:"perlahan", no:20, name:"Miopia", desc:"Rabun jauh — bayangan jatuh di depan retina",
+ anam:{KU:"Kabur saat melihat jauh", KT:"Nyeri kepala", RPS:"Jauh kabur, dekat lebih jelas, sering memicingkan mata", RPD:"-/+", RPK:"Orang tua (+), saudara (+)", RPO:"Kacamata (-/+)", RSE:"Main HP lama, nonton TV dekat, jarang bermain di ruang terbuka"},
+ exam:[["Visus","Menurun"],["Pupil","Miosis (-/+)"],["Snellen chart","Jarak 6 m"],["Pin hole","Membaik → kelainan refraksi"],["Autorefraktometer","Sesuai"]],
+ dd:["Katarak","Astigmatisme","Ambliopia"],
+ terapi:[{t:"plain", v:"Koreksi sesuai usia: balita tidak dikoreksi · pra-sekolah observasi 6 bulan · usia sekolah >1D dikoreksi · dewasa koreksi sesuai"},{t:"plain", v:"Kacamata: sferis negatif terkecil yang memberi visus terbaik"}],
+ eduk:["Istirahat mata tiap 30 menit saat aktivitas jarak dekat","Posisi duduk tegak & nyaman, penerangan cukup","Nonton TV jarak 6 kaki, batasi durasi","Olahraga teratur","Kontrol rutin 1 tahun sekali (anak-anak 6 bulan sekali)"]},
+
+{id:"astigmatisme", cat:"perlahan", no:21, name:"Astigmatisme", desc:"Perbedaan pembiasan pada tiap meridian mata",
+ anam:{KU:"Pandangan kabur", KT:"Nyeri kepala, mata lelah", RPS:"Melihat cahaya malam hari seperti dobel, nyeri kepala, mata lelah", RPD:"-/+", RPK:"Orang tua (+), kakak (+)", RPO:"Kacamata (-/+)", RSE:"Main HP lama"},
+ exam:[["Visus","Menurun, kabur"],["Pin hole","Bila tidak 6/6 & maju → kelainan refraksi"],["Autorefraktometer","Sesuai"],["Astigmatic fan test","Lihat garis paling tebal setelah ditambah lensa"]],
+ dd:["Katarak","Kelainan refraksi lain"],
+ terapi:[{t:"plain", v:"Koreksi dengan lensa silindris (± sferis)"}],
+ eduk:["Istirahat mata tiap 30 menit saat aktivitas jarak dekat","Posisi duduk tegak & nyaman, penerangan cukup","Nonton TV jarak 6 kaki, batasi durasi","Olahraga teratur","Kontrol rutin 1 tahun sekali (anak-anak 6 bulan sekali)"]},
+
+{id:"hordeolum", cat:"lain", no:1, name:"Hordeolum", desc:"Peradangan akut kelenjar Zeiss / Moll",
+ anam:{KU:"Benjolan di kelopak, mata merah", KT:"Nyeri, mengganjal", RPS:"Benjolan di atas mata, nyeri saat menunduk, keluar cairan kuning saat ditekan", RPD:"-/+", RPK:"-/+", RPO:"-/+", RSE:"Sering mengucek mata, jarang membersihkan make-up"},
+ exam:[["Visus","DBN"],["Palpebra","Edema, hiperemi, nyeri"],["Lainnya","DBN"]],
+ dd:["Kalazion","Dakriosistitis","Selulitis preseptal fase awal"],
+ terapi:[{t:"plain", v:"Non-farmako: kompres hangat, bersihkan dengan sabun bayi"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS selama 7 hari"}],
+ eduk:["Jangan ditekan atau ditusuk","Jaga kebersihan mata & tangan — bisa berulang","Hindari make-up mata dan lensa kontak selama radang"]},
+
+{id:"kalazion", cat:"lain", no:2, name:"Kalazion", desc:"Peradangan granulomatosa kronik kelenjar Meibom",
+ anam:{KU:"Benjolan di kelopak, mata tidak merah", KT:"Tidak nyeri", RPS:"Ada benjolan di atas mata", RPD:"-/+", RPK:"-/+", RPO:"-/+", RSE:"Sering mengucek mata, jarang membersihkan make-up"},
+ exam:[["Palpebra","Edema, tanpa nyeri"],["Lainnya","DBN"]],
+ dd:["Hordeolum","Dakriosistitis","Selulitis preseptal"],
+ terapi:[{t:"plain", v:"Non-farmako: kompres hangat, pengurutan ke arah kelenjar Meibom"},{t:"rx", v:"R/ Inj. Triamcinolone 40 mg/mL No. I — injeksi intralesi"},{t:"plain", v:"Insisi & kuretase bila menetap/besar"}],
+ eduk:["Jangan ditekan atau ditusuk","Jaga kebersihan mata & tangan — bisa berulang","Hindari make-up mata dan lensa kontak"]},
+
+{id:"blefaritis", cat:"lain", no:3, name:"Blefaritis", desc:"Iritasi kronik tepi kelopak mata dan bulu mata",
+ anam:{KU:"Gatal di kelopak mata", KT:"Nyeri, panas di kelopak mata", RPS:"Gatal, nyeri, panas kelopak; kotoran kekuningan, bila dilepas berdarah; ada sisik yang bisa dikelupas", RPD:"Keluhan sama (-/+), alergi (-/+)", RPK:"-/+", RPO:"-/+", RSE:"Lupa membersihkan make-up"},
+ exam:[["Palpebra","Edema, hiperemi, madarosis"],["Lainnya","DBN"]],
+ dd:["Kalazion","Dakriosistitis","Selulitis preseptal"],
+ terapi:[{t:"plain", v:"Non-farmako: kompres hangat, bersihkan dengan lidi & air hangat, massage kelopak posterior"},{t:"rx", v:"R/ Chloramphenicol 1% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS"},{t:"rx", v:"R/ Azithromycin tab 500 mg No. III\nS 1 dd 1 tab p.o."}],
+ eduk:["Terus bersihkan sisik/krusta dengan sabun bayi","Jaga kebersihan mata & tangan — sifatnya kronik & mudah kambuh"]},
+
+{id:"dakrioadenitis", cat:"lain", no:4, name:"Dakrioadenitis", desc:"Peradangan akut pada kelenjar lakrimal, umumnya pada anak",
+ anam:{KU:"—", KT:"—", RPS:"—", RPD:"—", RPK:"—", RPO:"—", RSE:"—"},
+ exam:[],
+ note:"Data anamnesis, pemeriksaan & terapi untuk kasus ini belum lengkap pada sumber materi."},
+];
+
+/* ============================================================
+   RENDER — BACA MODE
+   ============================================================ */
+const cardList = document.getElementById('cardList');
+const emptyState = document.getElementById('emptyState');
+let activeCat = 'all';
+let searchTerm = '';
+
+function terapiHTML(items){
+  if(!items || !items.length) return '';
+  return items.map(it=>{
+    if(it.t==='rx') return `<div class="rx">${escapeHTML(it.v)}</div>`;
+    if(it.t==='plain') return `<div class="plain">${it.v.startsWith('RUJUK')? '<span class="rujuk-line">'+it.v+'</span>' : escapeHTML(it.v)}</div>`;
+    return '';
+  }).join('');
+}
+function escapeHTML(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderCard(d){
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.dataset.cat = d.cat;
+
+  const anamRows = d.anam ? Object.entries(d.anam).filter(([k,v])=>v && v!=="—").map(([k,v])=>
+    `<div class="k">${k}</div><div class="v">${escapeHTML(v)}</div>`).join('') : '';
+
+  const examRows = (d.exam||[]).map(([k,v])=>`<li><span class="k">${k}</span><span>${escapeHTML(v)}</span></li>`).join('');
+
+  const ddChips = (d.dd||[]).map(x=>`<span class="dd-chip">${x}</span>`).join('');
+
+  const edukList = (d.eduk||[]).map(x=>`<li>${x}</li>`).join('');
+
+  el.innerHTML = `
+    <div class="card-head">
+      <div class="no mono">${String(d.no).padStart(2,'0')}</div>
+      <div class="title">
+        <h3>${d.name}${d.rujuk?'<span class="badge-rujuk">Rujuk</span>':''}</h3>
+        <div class="desc">${d.desc}</div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="card-body-inner">
+        ${d.note ? `<p class="note-incomplete">${d.note}</p>` : `
+        ${anamRows ? `<div class="sec-label">Anamnesis</div><div class="anam-grid">${anamRows}</div>` : ''}
+        ${examRows ? `<div class="sec-label">Pemeriksaan</div><ul class="exam-list">${examRows}</ul>` : ''}
+        ${ddChips ? `<div class="sec-label">Diagnosis banding</div><div class="dd-chips">${ddChips}</div>` : ''}
+        ${d.terapi && d.terapi.length ? `<div class="sec-label">Terapi</div><div class="terapi-block">${terapiHTML(d.terapi)}</div>` : ''}
+        ${edukList ? `<div class="sec-label">Edukasi</div><ul class="eduk">${edukList}</ul>` : ''}
+        `}
+      </div>
+    </div>
+  `;
+  el.querySelector('.card-head').addEventListener('click', ()=>{
+    el.classList.toggle('open');
+  });
+  return el;
+}
+
+function matchesSearch(d, term){
+  if(!term) return true;
+  const hay = JSON.stringify(d).toLowerCase();
+  return hay.includes(term.toLowerCase());
+}
+
+function renderList(){
+  cardList.innerHTML = '';
+  const grouped = {};
+  DATA.forEach(d=>{
+    if(activeCat!=='all' && d.cat!==activeCat) return;
+    if(!matchesSearch(d, searchTerm)) return;
+    (grouped[d.cat] = grouped[d.cat]||[]).push(d);
+  });
+  const order = ['turun','tetap','perlahan','lain'];
+  let any = false;
+  order.forEach(cat=>{
+    if(!grouped[cat]) return;
+    any = true;
+    if(activeCat==='all'){
+      const h = document.createElement('div');
+      h.className = 'cat-heading';
+      h.textContent = CATS[cat].label;
+      cardList.appendChild(h);
+    }
+    grouped[cat].forEach(d=> cardList.appendChild(renderCard(d)));
+  });
+  emptyState.style.display = any ? 'none' : 'block';
+}
+
+document.getElementById('searchInput').addEventListener('input', e=>{
+  searchTerm = e.target.value;
+  renderList();
+});
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    activeCat = chip.dataset.cat;
+    renderList();
+  });
+});
+renderList();
+
+/* ============================================================
+   MODE SWITCHING
+   ============================================================ */
+const views = {baca:'view-baca', flash:'view-flash', kuis:'view-kuis', resep:'view-resep'};
+document.querySelectorAll('.mode-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const mode = btn.dataset.mode;
+    Object.entries(views).forEach(([k,id])=>{
+      document.getElementById(id).style.display = (k===mode)?'block':'none';
+    });
+    if(mode==='flash') initFlash();
+    if(mode==='kuis' && !quizStarted) initQuiz();
+    if(mode==='resep' && !resepStarted) initResep();
+  });
+});
+
+/* ============================================================
+   FLASHCARD MODE
+   ============================================================ */
+const flashDeckSource = DATA.filter(d=>!d.note);
+let flashDeck = [...flashDeckSource];
+let flashIndex = 0;
+
+function shuffleArr(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function buildClue(d){
+  const parts=[];
+  if(d.anam.KU && d.anam.KU!=='—') parts.push(`<b>Keluhan utama:</b> ${d.anam.KU}`);
+  if(d.anam.KT && d.anam.KT!=='—') parts.push(`<b>Keluhan tambahan:</b> ${d.anam.KT}`);
+  if(d.anam.RPS && d.anam.RPS!=='—') parts.push(`<b>Riwayat:</b> ${d.anam.RPS}`);
+  return parts.join('<br><br>');
+}
+
+function renderFlash(){
+  const d = flashDeck[flashIndex];
+  document.getElementById('flashProgress').textContent = `Kartu ${flashIndex+1} / ${flashDeck.length}`;
+  document.getElementById('flashCatTag').textContent = CATS[d.cat].label;
+  document.getElementById('flashClue').innerHTML = buildClue(d);
+  document.getElementById('flashName').textContent = d.name;
+  document.getElementById('flashDesc').textContent = d.desc;
+  const terapiPreview = (d.terapi||[]).slice(0,2).map(t=>t.v.split('\n')[0]).join(' · ') || '—';
+  document.getElementById('flashTerapi').textContent = terapiPreview;
+  document.getElementById('flashCard').classList.remove('flipped');
+}
+
+function initFlash(){
+  flashDeck = [...flashDeckSource];
+  flashIndex = 0;
+  renderFlash();
+}
+
+document.getElementById('flashCard').addEventListener('click', function(){
+  this.classList.toggle('flipped');
+});
+document.getElementById('flashNext').addEventListener('click', ()=>{
+  flashIndex = (flashIndex+1) % flashDeck.length;
+  renderFlash();
+});
+document.getElementById('flashPrev').addEventListener('click', ()=>{
+  flashIndex = (flashIndex-1+flashDeck.length) % flashDeck.length;
+  renderFlash();
+});
+document.getElementById('flashShuffle').addEventListener('click', ()=>{
+  flashDeck = shuffleArr(flashDeckSource);
+  flashIndex = 0;
+  renderFlash();
+});
+
+/* ============================================================
+   QUIZ MODE
+   ============================================================ */
+let quizStarted = false;
+let quizPool = [];
+let quizIdx = 0;
+let quizScore = 0;
+let answered = false;
+
+function initQuiz(){
+  quizStarted = true;
+  quizPool = shuffleArr(DATA.filter(d=>!d.note));
+  quizIdx = 0;
+  quizScore = 0;
+  document.getElementById('quizTotal').textContent = quizPool.length;
+  document.getElementById('quizScore').textContent = quizScore;
+  renderQuizQuestion();
+}
+
+function buildExamListHTML(d){
+  const rows = (d.exam||[]).map(([k,v])=>`<li><span class="k">${k}</span><span>${escapeHTML(v)}</span></li>`).join('');
+  return rows;
+}
+
+function renderQuizQuestion(){
+  answered = false;
+  const d = quizPool[quizIdx];
+  document.getElementById('quizCount').textContent = quizIdx+1;
+  document.getElementById('quizClue').innerHTML = buildClue(d) || d.desc;
+
+  const examWrap = document.getElementById('quizExamWrap');
+  const examRows = buildExamListHTML(d);
+  if(examRows){
+    document.getElementById('quizExam').innerHTML = examRows;
+    examWrap.style.display = 'block';
+  } else {
+    document.getElementById('quizExam').innerHTML = '';
+    examWrap.style.display = 'none';
+  }
+
+  const distractors = shuffleArr(DATA.filter(x=>x.name!==d.name && !x.note)).slice(0,3);
+  const options = shuffleArr([d, ...distractors]);
+
+  const optWrap = document.getElementById('quizOptions');
+  optWrap.innerHTML = '';
+  options.forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt.name;
+    btn.addEventListener('click', ()=> selectAnswer(btn, opt, d));
+    optWrap.appendChild(btn);
+  });
+
+  document.getElementById('quizExplain').classList.remove('show');
+  document.getElementById('quizExplain').innerHTML = '';
+  document.getElementById('quizNextBtn').classList.remove('show');
+}
+
+function selectAnswer(btn, chosen, correct){
+  if(answered) return;
+  answered = true;
+  const allBtns = document.querySelectorAll('.opt-btn');
+  allBtns.forEach(b=> b.disabled = true);
+
+  if(chosen.name===correct.name){
+    btn.classList.add('correct');
+    quizScore++;
+  } else {
+    btn.classList.add('wrong');
+    allBtns.forEach(b=>{ if(b.textContent===correct.name) b.classList.add('correct'); });
+  }
+  document.getElementById('quizScore').textContent = quizScore;
+
+  const terapiPreview = (correct.terapi||[]).slice(0,1).map(t=>t.v.split('\n')[0]).join('') || '';
+  const explain = document.getElementById('quizExplain');
+  explain.innerHTML = `<b>${correct.name}</b> — ${correct.desc}.${terapiPreview? ' Terapi kunci: '+terapiPreview+'.':''}`;
+  explain.classList.add('show');
+  document.getElementById('quizNextBtn').classList.add('show');
+}
+
+const quizNextBtn = document.getElementById('quizNextBtn');
+let quizFinished = false;
+
+quizNextBtn.addEventListener('click', ()=>{
+  if(quizFinished){
+    quizFinished = false;
+    quizNextBtn.textContent = 'Soal berikutnya →';
+    initQuiz();
+    return;
+  }
+  quizIdx++;
+  if(quizIdx >= quizPool.length){
+    quizFinished = true;
+    document.getElementById('quizClue').innerHTML = `Kuis selesai! Skor akhir kamu: <b>${quizScore} / ${quizPool.length}</b>`;
+    document.getElementById('quizOptions').innerHTML = '';
+    document.getElementById('quizExplain').classList.remove('show');
+    document.getElementById('quizExamWrap').style.display = 'none';
+    quizNextBtn.textContent = 'Ulangi kuis';
+    quizNextBtn.classList.add('show');
+    return;
+  }
+  renderQuizQuestion();
+});
+
+/* ============================================================
+   RESEP MODE — cek resep obat benar/salah
+   ============================================================ */
+let resepStarted = false;
+let resepFinished = false;
+let resepPool = [];
+let resepIdx = 0;
+let resepScores = [];
+
+const RESEP_STOP = new Set(['ointment','tube','tablet','tablets','tetes','salep']);
+
+function initResep(){
+  resepStarted = true;
+  resepFinished = false;
+  const source = DATA.filter(d=> !d.note && (d.terapi||[]).some(t=>t.t==='rx'));
+  resepPool = shuffleArr(source);
+  resepIdx = 0;
+  resepScores = [];
+  document.getElementById('resepTotal').textContent = resepPool.length;
+  document.getElementById('resepScore').textContent = '–';
+  document.getElementById('resepNextBtn').classList.remove('show');
+  document.getElementById('resepNextBtn').textContent = 'Soal berikutnya →';
+  renderResepQuestion();
+}
+
+function renderResepQuestion(){
+  const d = resepPool[resepIdx];
+  document.getElementById('resepCount').textContent = resepIdx+1;
+  document.getElementById('resepDxName').textContent = d.name;
+  document.getElementById('resepClue').innerHTML = buildClue(d) || d.desc;
+
+  const examWrap = document.getElementById('resepExamWrap');
+  const examRows = buildExamListHTML(d);
+  if(examRows){
+    document.getElementById('resepExam').innerHTML = examRows;
+    examWrap.style.display = 'block';
+  } else {
+    document.getElementById('resepExam').innerHTML = '';
+    examWrap.style.display = 'none';
+  }
+
+  const input = document.getElementById('resepInput');
+  input.value = '';
+  input.disabled = false;
+  input.style.display = '';
+  const hintEl = document.getElementById('resepHint');
+  if(hintEl) hintEl.style.display = '';
+  document.getElementById('resepCheckBtn').style.display = 'block';
+  document.getElementById('resepCheckBtn').disabled = false;
+
+  const fb = document.getElementById('resepFeedback');
+  fb.classList.remove('show');
+  fb.innerHTML = '';
+  document.getElementById('resepNextBtn').classList.remove('show');
+}
+
+function toTitleCase(s){
+  return s.replace(/\w\S*/g, t=> t.charAt(0).toUpperCase()+t.slice(1));
+}
+function extractNamePhrase(raw){
+  const m = raw.match(/r\/\s*([^\n\d%]+)/);
+  if(!m) return '';
+  return m[1].trim().replace(/\s+/g,' ');
+}
+function extractDoseTokens(raw){
+  const m = raw.match(/\d+(\.\d+)?\s?(%|mg\b|g\b|iu\b)/g) || [];
+  return [...new Set(m.map(x=>x.replace(/\s+/g,'')))];
+}
+function extractFreqTokens(raw){
+  const m = raw.match(/\d+\s?dd/g) || [];
+  return [...new Set(m.map(x=>x.replace(/\s+/g,'')))];
+}
+function extractRouteTokens(raw){
+  const m = raw.match(/\bods\b|\bod\b|\bos\b/g) || [];
+  return [...new Set(m)];
+}
+
+function analyzeRxEntry(rxRaw, userRaw){
+  const raw = rxRaw.toLowerCase().replace(/,(\d)/g,'.$1');
+  const userNorm = userRaw.toLowerCase().replace(/,(\d)/g,'.$1');
+  const userNoSpace = userNorm.replace(/\s+/g,'');
+
+  const namePhrase = extractNamePhrase(raw);
+  const nameWords = namePhrase.split(' ').filter(w=>w.length>=4 && !RESEP_STOP.has(w));
+  const doseTokens = extractDoseTokens(raw);
+  const freqTokens = extractFreqTokens(raw);
+  const routeTokens = extractRouteTokens(raw);
+
+  const checks = [];
+  if(nameWords.length){
+    checks.push({label:'Nama obat', detail:nameWords.join(' / '), ok: nameWords.some(w=>userNorm.includes(w))});
+  }
+  if(doseTokens.length){
+    checks.push({label:'Dosis / konsentrasi', detail:doseTokens.join(' atau '), ok: doseTokens.some(t=>userNoSpace.includes(t))});
+  }
+  if(freqTokens.length){
+    checks.push({label:'Frekuensi', detail:freqTokens.join(' atau ')+' (kali/hari)', ok: freqTokens.some(t=>userNoSpace.includes(t))});
+  }
+  if(routeTokens.length){
+    checks.push({label:'Rute', detail:routeTokens.join(' / ').toUpperCase(), ok: routeTokens.some(t=>userNorm.includes(t))});
+  }
+
+  const displayName = namePhrase ? toTitleCase(namePhrase) : 'Obat';
+  const okCount = checks.filter(c=>c.ok).length;
+  const score = checks.length ? okCount/checks.length : 1;
+  return {displayName, checks, score};
+}
+
+document.getElementById('resepCheckBtn').addEventListener('click', ()=>{
+  const d = resepPool[resepIdx];
+  const userText = document.getElementById('resepInput').value.trim();
+  const rxEntries = (d.terapi||[]).filter(t=>t.t==='rx');
+
+  const results = rxEntries.map(t=> analyzeRxEntry(t.v, userText));
+  const overall = results.length ? Math.round(100*results.reduce((s,r)=>s+r.score,0)/results.length) : 0;
+  resepScores.push(overall);
+
+  const avg = Math.round(resepScores.reduce((a,b)=>a+b,0)/resepScores.length);
+  document.getElementById('resepScore').textContent = avg+'%';
+
+  let verdictClass = 'bad', verdictText = 'Kurang tepat — banyak yang perlu diperbaiki.';
+  if(overall>=80){ verdictClass='good'; verdictText='Bagus, resepmu sudah tepat!'; }
+  else if(overall>=50){ verdictClass='mid'; verdictText='Mendekati — masih ada beberapa detail yang kurang.'; }
+  if(!userText){ verdictClass='bad'; verdictText='Belum diisi — coba tulis resepnya dulu.'; }
+
+  const blocksHTML = results.map(r=>{
+    const items = r.checks.map(c=>`<li class="${c.ok?'ok':'miss'}">${c.ok?'✓':'✕'} ${c.label}: ${escapeHTML(c.detail)}</li>`).join('');
+    return `<div class="resep-drug-block"><div class="dname">${escapeHTML(r.displayName)} — ${Math.round(r.score*100)}%</div><ul class="resep-kw-list">${items||'<li>Tidak ada detail spesifik untuk dicek</li>'}</ul></div>`;
+  }).join('');
+
+  const fb = document.getElementById('resepFeedback');
+  fb.innerHTML = `
+    <div class="resep-verdict ${verdictClass}">Skor soal ini: ${overall}% — ${verdictText}</div>
+    ${blocksHTML}
+    <div class="resep-correct-label">Resep lengkap yang benar</div>
+    <div class="terapi-block">${terapiHTML(d.terapi)}</div>
+  `;
+  fb.classList.add('show');
+
+  document.getElementById('resepInput').disabled = true;
+  document.getElementById('resepCheckBtn').style.display = 'none';
+  document.getElementById('resepNextBtn').classList.add('show');
+});
+
+document.getElementById('resepNextBtn').addEventListener('click', ()=>{
+  if(resepFinished){
+    resepFinished = false;
+    document.getElementById('resepNextBtn').textContent = 'Soal berikutnya →';
+    initResep();
+    return;
+  }
+  resepIdx++;
+  if(resepIdx >= resepPool.length){
+    resepFinished = true;
+    const avg = resepScores.length ? Math.round(resepScores.reduce((a,b)=>a+b,0)/resepScores.length) : 0;
+    document.getElementById('resepDxName').textContent = '';
+    document.getElementById('resepClue').innerHTML = `Latihan resep selesai! Skor rata-rata kamu: <b>${avg}%</b>`;
+    document.getElementById('resepExamWrap').style.display = 'none';
+    document.getElementById('resepInput').style.display = 'none';
+    document.getElementById('resepCheckBtn').style.display = 'none';
+    const hintEl = document.getElementById('resepHint');
+    if(hintEl) hintEl.style.display = 'none';
+    document.getElementById('resepFeedback').classList.remove('show');
+    document.getElementById('resepFeedback').innerHTML = '';
+    document.getElementById('resepNextBtn').textContent = 'Ulangi latihan';
+    document.getElementById('resepNextBtn').classList.add('show');
+    return;
+  }
+  renderResepQuestion();
+});
+</script>
+</body>
+</html>
