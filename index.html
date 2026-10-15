@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rangkuman OSCE – Belajar Stase</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f7f8;--card:#fff;--ink:#12303a;--mut:#5b7782;--pri:#0f8b8d;--pri2:#0a6466;--soft:#d9eff0;--line:#cfe3e6;--red:#d64550;--ok:#2e9e6b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0c1a1e;--card:#12262c;--ink:#e3f1f3;--mut:#8fb0b8;--pri:#3cc4c6;--pri2:#7fe0e1;--soft:#173840;--line:#22464f;--red:#ff7a85;--ok:#4cd197}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0c1a1e;--card:#12262c;--ink:#e3f1f3;--mut:#8fb0b8;--pri:#3cc4c6;--pri2:#7fe0e1;--soft:#173840;--line:#22464f;--red:#ff7a85;--ok:#4cd197}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:linear-gradient(135deg,var(--pri2),var(--pri));color:#fff;padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+header b{font-size:1.05rem;flex:1;cursor:pointer}
+.cross{width:30px;height:30px;background:#fff;border-radius:8px;display:grid;place-items:center;color:var(--red);font-weight:900;font-size:22px;line-height:1}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:9px 15px;background:var(--pri);color:#fff;font-weight:600}
+button.g{background:var(--soft);color:var(--pri2)}button.d{background:var(--red)}
+header button{background:rgba(255,255,255,.2)}
+main{max-width:860px;margin:0 auto;padding:18px}
+.hero{text-align:center;padding:26px 8px 10px}.hero small{color:var(--mut);letter-spacing:.12em;text-transform:uppercase}
+.hero h1{margin:.2em 0;font-size:2rem;color:var(--pri2)}
+.ecg{width:100%;max-width:420px;height:46px;margin:6px auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:12px 0;box-shadow:0 2px 8px rgba(15,139,141,.07)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.st{cursor:pointer;border-left:5px solid var(--pri);transition:transform .15s}.st:hover{transform:translateY(-2px)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}.tabs button{background:var(--soft);color:var(--pri2);white-space:nowrap}.tabs button.on{background:var(--pri);color:#fff}
+input,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+textarea{min-height:110px}
+.tag{display:inline-block;background:var(--soft);color:var(--pri2);padding:2px 10px;border-radius:99px;font-size:.8rem;font-weight:600}
+.sec{margin:10px 0}.sec h4{margin:0;color:var(--pri2);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}.sec p{margin:2px 0;white-space:pre-line}
+.fc{min-height:220px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;margin:7px 0;background:var(--card);color:var(--ink);border:2px solid var(--line)}
+.opt.ok{border-color:var(--ok);background:rgba(46,158,107,.15)}.opt.no{border-color:var(--red);background:rgba(214,69,80,.15)}
+.row{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:12px}
+.mut{color:var(--mut);font-size:.9rem}.hide{display:none}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:20px}
+dialog{border:0;border-radius:16px;background:var(--card);color:var(--ink);max-width:560px;width:92%}dialog::backdrop{background:rgba(0,0,0,.5)}
+:root{--bg:#f3fbfa;--card:#fff;--ink:#17323b;--mut:#66848d;--pri:#00b3a4;--pri2:#007f78;--soft:#d9f5f1;--line:#d5ebe8;--red:#ff6b6b;--ok:#22b573;--yel:#ffc84a;--vio:#7c6cf6;--sh:#008a80}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1a20;--card:#122a32;--ink:#e8f6f6;--mut:#8db3ba;--pri:#2fd6c6;--pri2:#0b8f86;--soft:#16393f;--line:#21474f;--sh:#0a6e67}}
+:root[data-theme="dark"]{--bg:#0a1a20;--card:#122a32;--ink:#e8f6f6;--mut:#8db3ba;--pri:#2fd6c6;--pri2:#0b8f86;--soft:#16393f;--line:#21474f;--sh:#0a6e67}
+body{font-family:Nunito,system-ui,-apple-system,sans-serif;font-weight:500;background:radial-gradient(circle at 10% 0,rgba(0,179,164,.18),transparent 40%),radial-gradient(circle at 95% 25%,rgba(124,108,246,.16),transparent 40%),radial-gradient(circle at 20% 100%,rgba(255,200,74,.18),transparent 40%),var(--bg);background-attachment:fixed}
+header{background:linear-gradient(120deg,#00b3a4,#4a8cf0 70%,#7c6cf6);border-radius:0 0 26px 26px;box-shadow:0 8px 24px rgba(0,120,130,.25);padding:14px 18px}
+header b{font-weight:900;font-size:1.15rem;letter-spacing:.01em}
+.cross{border-radius:12px;transform:rotate(-6deg);box-shadow:0 3px 0 rgba(0,0,0,.15)}
+.chip{background:rgba(255,255,255,.22);padding:5px 12px;border-radius:99px;font-weight:800;font-size:.85rem;white-space:nowrap}
+header button{box-shadow:none;padding:6px 10px}
+button{border-radius:14px;font-weight:800;box-shadow:0 4px 0 var(--sh);transition:transform .1s,box-shadow .1s,filter .15s}
+button:hover{filter:brightness(1.07)}button:active{transform:translateY(3px);box-shadow:0 1px 0 var(--sh)}
+button.g{box-shadow:0 4px 0 var(--line)}button.d{box-shadow:0 4px 0 #c24848}
+.card{border-radius:22px;border:2px solid var(--line);box-shadow:0 6px 0 var(--line);animation:up .4s both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+@keyframes bob{50%{transform:translateY(-9px) rotate(6deg)}}
+.hero h1{font-weight:900;font-size:2.5rem;background:linear-gradient(90deg,var(--pri),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero small{font-weight:800;color:var(--vio)}
+.fl{font-size:2.1rem;display:flex;gap:14px;justify-content:center}.fl span{animation:bob 2.6s ease-in-out infinite}.fl span:nth-child(2){animation-delay:.3s}.fl span:nth-child(3){animation-delay:.6s}.fl span:nth-child(4){animation-delay:.9s}.fl span:nth-child(5){animation-delay:1.2s}
+.st{--a:#00b3a4;border:2px solid var(--line);border-top:8px solid var(--a);transition:transform .2s}.st:nth-child(4n+2){--a:#7c6cf6}.st:nth-child(4n+3){--a:#ff8a5b}.st:nth-child(4n+4){--a:#ffc84a}
+.st:hover{transform:translateY(-5px) rotate(-1deg)}.st b{font-size:1.2rem}
+.tabs{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:6px;margin-top:8px}.tabs button{box-shadow:none;background:transparent;flex:1}.tabs button.on{background:linear-gradient(120deg,var(--pri),var(--vio));color:#fff}
+.tag{background:linear-gradient(120deg,var(--soft),var(--card));border:1px solid var(--line)}
+.sec{background:var(--soft);padding:8px 14px;border-radius:14px}.sec h4{font-weight:900}
+input,textarea{border:2px solid var(--line);border-radius:14px}input:focus,textarea:focus{outline:0;border-color:var(--pri)}
+.fc{min-height:260px;border:2px dashed var(--pri);animation:flipin .35s both}@keyframes flipin{from{transform:rotateX(70deg);opacity:0}}
+.opt{border-radius:16px;box-shadow:0 4px 0 var(--line);font-weight:700;padding:13px 16px}.opt:hover{border-color:var(--pri)}
+.opt.ok{animation:pulse .4s}@keyframes pulse{50%{transform:scale(1.03)}}
+.bar{height:12px;background:var(--soft);border-radius:99px;overflow:hidden;margin:12px 0 4px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--yel));border-radius:99px;transition:width .4s}
+.pp{position:fixed;top:-30px;font-size:1.6rem;pointer-events:none;z-index:99;animation:fall 1.4s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.2}}
+.hb{display:inline-flex;align-items:center;gap:10px;padding:7px 20px 7px 7px;background:linear-gradient(120deg,var(--pri),#4a8cf0);color:#fff;border-radius:99px;font-weight:900;letter-spacing:.02em;position:relative;overflow:hidden;box-shadow:0 4px 0 var(--sh),0 10px 20px rgba(0,179,164,.3)}
+.hb .hi{width:32px;height:32px;border-radius:50%;background:#fff;color:#ff4d5e;display:grid;place-items:center;font-size:22px;line-height:1;font-weight:900;box-shadow:0 0 0 3px rgba(255,255,255,.35);animation:beat 1.6s infinite}
+.hb::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .5s}
+.hb:hover::after{left:130%}
+@keyframes beat{0%,50%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1.04)}}
+.cv{position:fixed;inset:0;z-index:200;display:grid;place-content:center;justify-items:center;gap:16px;background:linear-gradient(135deg,#007f78,#4a8cf0 60%,#7c6cf6);color:#fff;animation:cvin .25s both}
+.cv.out{animation:cvout .4s forwards}
+@keyframes cvin{from{opacity:0}}@keyframes cvout{to{opacity:0;transform:scale(1.1)}}
+.cv .cr{width:90px;height:90px;border-radius:50%;background:#fff;color:#ff4d5e;font-size:64px;font-weight:900;line-height:1;display:grid;place-items:center;animation:beat .9s infinite,ring .9s infinite}
+@keyframes ring{from{box-shadow:0 0 0 0 rgba(255,255,255,.6)}to{box-shadow:0 0 0 46px rgba(255,255,255,0)}}
+.cv svg{width:min(80vw,340px);height:60px;overflow:visible}
+.cv path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.2s ease-out forwards;filter:drop-shadow(0 0 6px rgba(255,255,255,.7))}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cv p{margin:0;font-weight:900;font-size:1.1rem;letter-spacing:.04em}
+.cv small{opacity:.8;font-weight:700}
+.hb .hi{color:#007f78}.hb .hi svg{width:20px;height:20px}
+.cv .cr{position:relative}.cv .cr svg{position:absolute;inset:18px;width:54px;height:54px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:0;animation:sw 1.7s both}
+.cv .i1{color:#ff4d5e;fill:rgba(255,77,94,.2)}.cv .i2{color:#007f78;animation-delay:.55s}.cv .i3{color:#7c6cf6;animation-name:sw3;animation-delay:1.1s}
+@keyframes sw{0%{opacity:0;transform:scale(.3) rotate(-25deg)}10%,28%{opacity:1;transform:scale(1) rotate(0)}38%,100%{opacity:0;transform:scale(.3) rotate(25deg)}}
+@keyframes sw3{0%{opacity:0;transform:scale(.3) rotate(-25deg)}20%,100%{opacity:1;transform:scale(1) rotate(0)}}
+.cv .cr{width:112px;height:112px}
+.cv .cr .st1{opacity:1;color:#007f78;inset:21px;width:70px;height:70px;animation:spin 1s cubic-bezier(.5,0,.3,1) infinite}
+.cv .cr path{stroke:currentColor;stroke-width:2.2;stroke-dasharray:none;stroke-dashoffset:0;animation:none;filter:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+header{background:none;box-shadow:none;border-radius:0;padding:10px 12px;display:block;color:var(--ink)}
+.nv{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:8px 10px 8px 8px;border-radius:24px;background:color-mix(in srgb,var(--card) 76%,transparent);-webkit-backdrop-filter:blur(16px) saturate(1.6);backdrop-filter:blur(16px) saturate(1.6);border:1.5px solid color-mix(in srgb,var(--pri) 25%,var(--line));box-shadow:0 10px 30px rgba(0,120,130,.18),inset 0 1px 0 rgba(255,255,255,.4)}
+.lg{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;flex:none;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--pri),#4a8cf0 60%,var(--vio));box-shadow:0 4px 0 var(--sh),0 8px 16px rgba(74,140,240,.35);transform:rotate(-6deg);transition:transform .25s}
+.lg:hover{transform:rotate(6deg) scale(1.08)}.lg svg{width:26px;height:26px}
+.bn{flex:1;min-width:0;cursor:pointer;line-height:1.15}
+.bn b{display:block;flex:none;font-size:1.12rem;font-weight:900;background:linear-gradient(90deg,var(--pri2),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.bn small{color:var(--mut);font-weight:700;font-size:.74rem}
+.nv .chip{background:var(--soft);color:var(--pri2);border:1px solid var(--line);font-weight:900}
+.nv button{width:42px;height:42px;padding:0;border-radius:50%;background:var(--soft);color:var(--ink);box-shadow:0 3px 0 var(--line);font-size:1.1rem}
+.nv button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+@media(max-width:520px){.bn small{display:none}.nv{gap:8px}.nv .chip{font-size:.72rem;padding:4px 9px}.bn b{font-size:1rem}}
+label{display:block;font-weight:800;font-size:.85rem;margin:12px 0 4px;color:var(--pri2)}
+dialog{max-height:90vh;overflow:auto}#cd textarea{min-height:70px}
+.st{position:relative}.xd{position:absolute;top:10px;right:10px;width:34px;height:34px;padding:0;border-radius:50%;background:var(--soft);color:var(--red);font-size:1rem;box-shadow:0 3px 0 var(--line)}.xd:hover{background:var(--red);color:#fff}
+dialog#dd{max-width:380px}
+.cv.ok{background:linear-gradient(135deg,#0a6e67,#1fae78 60%,#7c6cf6)}
+.cv.ok .cr{animation:bounce .5s both,ring .9s .4s 2}
+@keyframes bounce{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+.cv .cr .ck{opacity:1;color:#22b573;inset:24px;width:64px;height:64px;stroke-width:3;animation:none}
+.cv .cr .ck path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw2 .5s .35s ease-out forwards}
+@keyframes draw2{to{stroke-dashoffset:0}}
+.cv.ok path.ec{stroke:#fff;animation-duration:1.3s}
+.cv.del{background:linear-gradient(135deg,#243746,#3a4f63 55%,#c0394b)}
+.cv.del .cr{animation:ring .9s 2}
+.cv .cr .ht{opacity:1;color:#ff4d5e;fill:rgba(255,77,94,.25);inset:21px;width:70px;height:70px;animation:beat .55s 2,grey .5s 1.15s forwards}
+@keyframes grey{to{color:#8a98a3;fill:rgba(138,152,163,.2);transform:scale(.88)}}
+.cv.del path.ec{stroke:#ffd3d8;animation-duration:1.5s}
+.cs{background:var(--card);border:2px solid var(--line);border-radius:20px;margin:10px 0;box-shadow:0 5px 0 var(--line);overflow:hidden;animation:up .4s both;animation-delay:var(--d);transition:border-color .2s}
+.cs[open]{border-color:var(--pri)}
+.cs>summary,.sc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px}
+.cs>summary::-webkit-details-marker,.sc>summary::-webkit-details-marker{display:none}
+.cs>summary{padding:14px 16px;transition:background .15s}.cs>summary:hover{background:var(--soft)}
+.ci{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--pri),var(--vio));color:#fff;display:grid;place-items:center;font-weight:900;flex:none;box-shadow:0 3px 0 var(--sh)}
+.ct{flex:1;min-width:0}.ct b{display:block;font-size:1.05rem;color:var(--ink)}.ct small{color:var(--mut);font-weight:700}
+.chev{margin-left:auto;font-size:1.3rem;font-weight:900;line-height:1;color:var(--pri);transition:transform .25s}
+details[open]>summary>.chev{transform:rotate(180deg)}
+.cb{padding:0 14px 14px;animation:dn .3s}.sc[open]>p{animation:dn .25s}
+@keyframes dn{from{opacity:0;transform:translateY(-8px)}}
+.sc{border-radius:14px;background:color-mix(in srgb,var(--a) 11%,var(--card));border-left:5px solid var(--a);margin:8px 0}
+.sc>summary{padding:10px 12px;font-weight:900;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--a)}
+.sc>summary .chev{color:var(--a);font-size:1.1rem}
+.sc p{margin:0;padding:0 14px 12px;white-space:pre-line}
+.hb.go{animation:jump .45s}.hb.go .hi{animation:spin .55s ease-out}
+@keyframes jump{30%{transform:translateY(-7px) scale(1.07)}60%{transform:translateY(1px) scale(.95)}}
+.cv.hm{background:linear-gradient(135deg,#00b3a4,#4a8cf0 70%,#7c6cf6);animation:wipe .4s ease-out both}
+.cv.hm.out{animation:cvout .35s forwards}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.cv.hm>svg path{animation-duration:.7s}
+.ecg{max-width:520px;height:56px;overflow:visible}
+.ecb,.ecs{fill:none;stroke:var(--pri);stroke-linejoin:round;stroke-linecap:round}
+.ecb{stroke-width:2.5;opacity:.22}
+.ecs{stroke-width:3.2;stroke-dasharray:22 100;filter:drop-shadow(0 0 5px var(--pri)) drop-shadow(0 0 12px var(--pri));animation:sweep 2.8s linear infinite}
+@keyframes sweep{from{stroke-dashoffset:22}to{stroke-dashoffset:-100}}
+@media(prefers-reduced-motion:reduce){.ecs{animation:none;stroke-dasharray:none}}
+.iris{position:fixed;inset:0;z-index:200;overflow:hidden;display:grid;place-content:center;justify-items:center;gap:12px;color:#fff;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.18),transparent 45%),linear-gradient(135deg,#06364a,#0a8f94 55%,#4a8cf0);animation:irisin .55s cubic-bezier(.7,0,.2,1) both}
+.iris.out{animation:irisout .55s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes irisin{from{clip-path:circle(0 at var(--x) var(--y))}to{clip-path:circle(150vmax at var(--x) var(--y))}}
+@keyframes irisout{from{clip-path:circle(150vmax at 50% 50%)}to{clip-path:circle(0 at 50% 50%)}}
+.ih{width:108px;height:108px;border-radius:32px;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.55);display:grid;place-items:center;animation:tile 1s ease-in-out both,ring2 1s .3s 1}
+@keyframes tile{0%{transform:scale(.4) rotate(-20deg)}50%{transform:scale(1.12) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes ring2{from{box-shadow:0 0 0 0 rgba(255,255,255,.55)}to{box-shadow:0 0 0 38px rgba(255,255,255,0)}}
+.ih svg{width:62px;height:62px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ih path{stroke-dasharray:100;stroke-dashoffset:100;animation:draw2 .55s .3s ease-out forwards}.ih path:nth-child(3){stroke:#ff9aa5;animation-delay:.65s}
+.it{margin:0;font-weight:900;font-size:1.25rem;letter-spacing:.16em;text-transform:uppercase}
+.dots{display:flex;gap:7px}.dots i{width:9px;height:9px;border-radius:50%;background:#fff;animation:bnc .6s infinite alternate}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes bnc{to{transform:translateY(-8px);opacity:.5}}
+.pt{position:absolute;bottom:-50px;font-size:1.7rem;animation:rise 1.1s ease-out both}
+@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+.sx{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:rgba(5,32,42,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);animation:sxin .3s both}
+.sx.out{animation:sxout .35s forwards}.sx.out .sxc{animation:sxbye .35s forwards}
+@keyframes sxin{from{opacity:0}}@keyframes sxout{to{opacity:0}}
+@keyframes sxpop{from{transform:translateY(40px) scale(.7);opacity:0}}@keyframes sxbye{to{transform:translateY(-20px) scale(.92);opacity:0}}
+.sxc{position:relative;width:min(86vw,340px);padding:26px 22px 22px;border-radius:30px;text-align:center;background:var(--card);border:2px solid var(--pri);box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 6px color-mix(in srgb,var(--pri) 18%,transparent);animation:sxpop .6s cubic-bezier(.2,1.3,.4,1) both}
+.sxr{position:relative;width:124px;height:124px;margin:0 auto 8px}.sxr svg{width:100%;height:100%}
+.rb{fill:none;stroke:var(--soft);stroke-width:8}
+.rp{fill:none;stroke:url(#gg);stroke-width:8;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:60px 60px;animation:fillr .9s .25s ease-out forwards}
+@keyframes fillr{to{stroke-dashoffset:0}}
+.rf{fill:#22b573;transform-origin:60px 60px;transform:scale(0);animation:sxf .4s 1.1s cubic-bezier(.2,1.6,.4,1) forwards}@keyframes sxf{to{transform:scale(1)}}
+.rc{fill:none;stroke:#fff;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:draw2 .4s 1.3s ease-out forwards}
+.sp{position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4px;border-radius:50%;opacity:0;animation:burst .85s 1.15s ease-out forwards}
+@keyframes burst{0%{opacity:1;transform:rotate(var(--a)) translateY(-48px)}100%{opacity:0;transform:rotate(var(--a)) translateY(-92px) scale(.3)}}
+.sxt{margin:6px 0 2px;font-size:1.45rem;font-weight:900;background:linear-gradient(90deg,var(--pri),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent;animation:up .4s 1.3s both}
+.sxs{margin:0 0 12px;color:var(--mut);font-weight:700;animation:up .4s 1.4s both}
+.sxch{display:flex;gap:8px;justify-content:center;margin-bottom:16px}.sxch span{background:var(--soft);color:var(--pri2);padding:5px 12px;border-radius:99px;font-weight:900;font-size:.85rem;animation:chipin .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes chipin{from{transform:scale(0);opacity:0}}
+.sxb{height:8px;background:var(--soft);border-radius:99px;overflow:hidden}.sxb i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pri),var(--yel));animation:ld 1.9s .3s linear forwards}
+@keyframes ld{to{width:100%}}
+@media(prefers-reduced-motion:reduce){.sp{display:none}}
+:root{--bg:#f3f9fd;--card:#fff;--line:#d3e8ee;--soft:#e1f6f3;--mut:#5b7a87;--b1:rgba(0,201,183,.32);--b2:rgba(124,108,246,.26);--b3:rgba(255,166,120,.32);--dots:rgba(0,120,140,.11);--cs:0 16px 30px rgba(0,150,160,.15)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--b1:rgba(0,179,164,.18);--b2:rgba(124,108,246,.16);--b3:rgba(255,200,74,.12);--dots:rgba(255,255,255,.035);--cs:0 0 0 transparent}}
+:root[data-theme="dark"]{--b1:rgba(0,179,164,.18);--b2:rgba(124,108,246,.16);--b3:rgba(255,200,74,.12);--dots:rgba(255,255,255,.035);--cs:0 0 0 transparent}
+body{background:radial-gradient(var(--dots) 1.3px,transparent 1.7px) 0 0/22px 22px,radial-gradient(circle at 6% 0,var(--b1),transparent 42%),radial-gradient(circle at 100% 16%,var(--b2),transparent 42%),radial-gradient(circle at 12% 100%,var(--b3),transparent 46%),var(--bg);background-attachment:fixed}
+main{position:relative;z-index:0}
+.hero{position:relative}.hero::before{content:"";position:absolute;left:50%;top:-10px;width:320px;height:260px;transform:translateX(-50%);background:radial-gradient(circle,var(--b1),transparent 68%);filter:blur(12px);z-index:-1}
+button{background:linear-gradient(135deg,var(--pri),#2fa6e8)}
+.card,.cs{box-shadow:0 6px 0 var(--line),var(--cs)}
+.st{background:linear-gradient(180deg,color-mix(in srgb,var(--a) 10%,var(--card)),var(--card) 60%)}
+.st:hover{box-shadow:0 8px 0 var(--line),0 22px 36px color-mix(in srgb,var(--a) 28%,transparent)}
+.sc{background:color-mix(in srgb,var(--a) 13%,var(--card))}
+.tabs{box-shadow:0 5px 0 var(--line),var(--cs)}.tabs button.on{box-shadow:0 4px 0 var(--sh),0 8px 16px rgba(124,108,246,.3)}
+input:focus,textarea:focus{box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 22%,transparent)}
+.nv{box-shadow:0 8px 0 color-mix(in srgb,var(--line) 70%,transparent),0 18px 34px rgba(0,120,140,.16),inset 0 1px 0 rgba(255,255,255,.6)}
+button.g,.tabs button,.hb,.xd,.nv button,.opt,button.d{background-image:none}
+button.g{background:var(--soft)}button.d{background:var(--red)}.tabs button{background:transparent}.tabs button.on{background:linear-gradient(120deg,var(--pri),var(--vio))}.nv button{background:var(--soft)}.hb{background:linear-gradient(120deg,var(--pri),#4a8cf0)}.xd{background:var(--soft)}.opt{background:var(--card)}
+.rs{overflow:hidden}.rc{margin-top:60px;padding-top:0;overflow:visible}
+.rem{width:104px;height:104px;margin:-52px auto 6px;border-radius:50%;display:grid;place-items:center;font-size:3.4rem;border:4px solid var(--card)}
+.rc.lo{border-color:#ff9a62}.rc.lo .rem{background:linear-gradient(135deg,#ffd9b8,#ff9a62);box-shadow:0 10px 24px rgba(255,140,80,.45);animation:flexm 1s ease-in-out infinite}
+.rc.hi{border-color:#ffc84a}.rc.hi .rem{background:linear-gradient(135deg,#fff1b8,#ffc84a);box-shadow:0 10px 28px rgba(255,200,74,.6);animation:tro .8s cubic-bezier(.2,1.4,.4,1) both,flt 2s .8s ease-in-out infinite}
+@keyframes flexm{0%,100%{transform:scale(1) rotate(-8deg)}50%{transform:scale(1.18) rotate(8deg)}}
+@keyframes tro{from{transform:scale(0) rotate(-40deg)}}@keyframes flt{50%{transform:translateY(-6px)}}
+.rt{font-size:1.45rem;font-weight:900;margin:4px 0 2px;-webkit-background-clip:text;background-clip:text;color:transparent}
+.rc.lo .rt{background-image:linear-gradient(90deg,#ff7a3c,#e0568a)}.rc.hi .rt{background-image:linear-gradient(90deg,#e0a400,#ff6b9a,#7c6cf6)}
+.rpp{margin:0 0 10px;font-weight:800;color:var(--ink)}
+.rsn{font-size:2.2rem;font-weight:900;color:var(--ink);line-height:1}.rsn b{color:var(--pri)}
+.stars{display:flex;justify-content:center;gap:6px;margin:8px 0 12px;font-size:2rem;line-height:1}.stars span{color:var(--line)}
+.stars span.on{color:#ffc84a;text-shadow:0 0 14px rgba(255,200,74,.8);animation:chipin .5s cubic-bezier(.2,1.8,.4,1) both}
+.fcw{perspective:1400px}
+.fcard{position:relative;height:min(430px,60vh);min-height:300px;cursor:pointer;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.3,1.5,.5,1)}
+.fcard.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:28px;padding:22px;overflow:auto;display:flex;text-align:center;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.fi{margin:auto;max-width:100%}
+.front{background:linear-gradient(160deg,color-mix(in srgb,var(--pri) 9%,var(--card)),var(--card));border:3px solid var(--pri);box-shadow:0 8px 0 var(--line),var(--cs)}
+.back{transform:rotateY(180deg);background:linear-gradient(135deg,#00b3a4,#4a8cf0 60%,#7c6cf6);color:#fff;border:3px solid rgba(255,255,255,.45);box-shadow:0 8px 0 #2b5fb8,0 26px 40px rgba(74,140,240,.35)}
+.qm{font-size:3rem;margin-top:10px;animation:flt 2.4s ease-in-out infinite}
+.fq{font-size:1.1rem;font-weight:700;margin:8px 0 14px;line-height:1.55;white-space:pre-line}
+.hint{display:inline-block;color:var(--mut);font-weight:800;font-size:.85rem;animation:hnt 1.6s ease-in-out infinite}
+@keyframes hnt{50%{opacity:.35;transform:translateY(-3px)}}
+.tag2{display:inline-block;background:rgba(255,255,255,.25);padding:3px 14px;border-radius:99px;font-weight:900;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.back h2{margin:12px 0;font-size:1.7rem;font-weight:900}.back p{margin:6px 0;font-weight:600;white-space:pre-line}
+.ft{background:rgba(255,255,255,.16);border-radius:14px;padding:10px 12px;text-align:left;font-size:.92rem}
+.chip2{background:var(--soft);color:var(--pri2);padding:4px 12px;border-radius:99px;font-weight:900;font-size:.85rem}.chip2.bump{animation:chipin .5s cubic-bezier(.2,1.8,.4,1)}
+button.ok{background:linear-gradient(135deg,#22b573,#00b3a4);box-shadow:0 4px 0 #11875a}
+.fcw.r{animation:inr .5s cubic-bezier(.2,1.2,.4,1) both}.fcw.l{animation:inl .5s cubic-bezier(.2,1.2,.4,1) both}
+.fcw.xo{animation:outl .19s ease-in forwards}.fcw.xi{animation:outr .19s ease-in forwards}.fcw.pw{animation:pw .5s ease-out}
+@keyframes inr{from{transform:translateX(70px) rotate(5deg);opacity:0}}@keyframes inl{from{transform:translateX(-70px) rotate(-5deg);opacity:0}}
+@keyframes outl{to{transform:translateX(-70px) rotate(-6deg);opacity:0}}@keyframes outr{to{transform:translateX(70px) rotate(6deg);opacity:0}}
+@keyframes pw{40%{transform:scale(1.04) rotate(-1deg)}}
+@media(prefers-reduced-motion:reduce){.fcard{transition:transform .01s}}
+footer{font-weight:700}
+</style></head><body>
+<header><div class="nv"><div class="lg" onclick="home()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg></div><div class="bn" onclick="home()"><b>Rangkuman OSCE</b><small>Belajar stase kedokteran</small></div><span class="chip" id="xp"></span><button id="th" aria-label="Ganti tema">🌓</button></div></header>
+<main id="app"></main>
+<dialog id="dd" style="text-align:center"><div style="font-size:2.6rem">🗑️</div><h3 style="margin:4px 0;color:var(--red)">Hapus materi ini?</h3><p><b id="dn"></b></p><p class="mut">Data materi akan hilang dari perangkat ini dan tidak bisa dikembalikan.</p><div class="row" style="justify-content:center"><button class="g" onclick="dd.close()">Batal</button><button class="d" onclick="doDel()">Ya, hapus</button></div></dialog>
+<footer>Website belajar OSCE untuk Bexie<br>© 2026 @rindrathlla</footer>
+<dialog id="dlg"><h3 style="margin-top:0;color:var(--pri2)">🗂️ Tambah Materi Stase</h3>
+<p class="mut">Unggah file JSON atau tempel isinya. Materi tersimpan di perangkat ini.</p>
+<input type="file" id="f" accept=".json"><p class="mut" style="margin:8px 0 4px">atau tempel JSON:</p>
+<textarea id="ta" placeholder='{"nama":"Bedah","deskripsi":"...","kasus":[...]}'></textarea>
+<div class="row"><button class="g" onclick="tpl()">⬇ Unduh Template</button><span><button class="g" onclick="dlg.close()">Batal</button> <button onclick="saveJ()">Simpan</button></span></div></dialog>
+<script>
+const $=s=>document.querySelector(s),dlg=$('#dlg'),app=$('#app');
+const EDU='Jelaskan penyakit pasien; cara pakai obat beserta jedanya (dioleskan, bukan langsung dari tube); cuci tangan sebelum & sesudah pakai obat; kontrol mata rutin.';
+const A='Mata merah visus turun',B='Mata merah visus tetap',C='Mata tenang visus turun perlahan',F='Lain-lain (adneksa)';
+const EYE={id:'mata',nama:'OSCE Mata',deskripsi:'Kompilasi 27 kasus stase Ilmu Kesehatan Mata — anamnesis, pemeriksaan, diagnosis banding, terapi & resep, hingga edukasi.',kasus:[]};
+const D=[
+['Herpes Simpleks Keratitis',A,'Keradangan kornea karena virus herpes simpleks.','Mata merah, fotofobia, epifora, penglihatan menurun, kabur, berair, silau; lebih suka ruang gelap. RPD: pernah herpes di bagian lain (ex mulut).','Visus menurun; palpebra lepuhan folikuler; kornea: sensibilitas turun, keratitis punctata difusa, dendritic ulcer; BMD/pupil/iris baik.\nPreaurikular: limfadenopati. Fluoresein: dendritic ulcer (+). Scrapping & Giemsa: multinucleated giant cell. Sensibilitas kornea menurun. Tzanck smear (+).','Keratitis bakterial, keratitis jamur, ulkus kornea','R/ Acyclovir ophthalmic ointment 3% tube No. I S 5 dd ue 1 OD/OS/ODS\nRUJUK: keratoplasti (untuk menghilangkan virus di kornea)',EDU+' Jangan berbagi handuk.','R/ Acyclovir ophthalmic ointment 3% tube No. I\nS 5 dd ue 1 OD/OS/ODS',['acyclovir|asiklovir','ointment|salep|\\bue\\b','5 ?dd']],
+['Keratitis',A,'Keradangan kornea.','Mata merah, nyeri, fotofobia, epifora, penglihatan menurun, kabur, berair, silau. Faktor risiko: bakteri (higiene buruk, imunokompromais), jamur (tergores tanaman/ekor hewan), virus (imunokompromais), Acanthamoeba (lensa kontak, renang).','Visus menurun; palpebra edema; konjungtiva hiperemi. Kornea: Pseudomonas (mukopurulen, hijau, hipopion); Streptococcus (abu-abu, putih, kuning); jamur (infiltrat putih tepi berbulu); Acanthamoeba (ring infiltrate). BMD hipopion (-/+); pupil/iris DBN. Fluoresein (+); Seidel (-/+); scrapping gram & Giemsa; KOH; Calcofluor white.','Bakteri, jamur, Acanthamoeba, virus','1. Bakteri: R/ Levofloxacin 0,5% ED No. I S 6 dd gtt 1 OD/OS/ODS\n2. Jamur: R/ Natamycin 5% ED fls No. I S 6 dd gtt 1 (Aspergillus); Amphotericin B 0,15% ED fls No. I S 1 dd gtt 1 o.h 48 jam (Candida)\n3. Acanthamoeba: R/ Chlorhexidine 0,02% ED fls No. I S gtt 1 o.h OD/OS/ODS 2-3 hari',EDU+' Jangan berbagi handuk.','R/ Levofloxacin 0,5% ED No. I S 6 dd gtt 1 OD/OS/ODS (bakteri)\nR/ Natamycin 5% ED fls No. I S 6 dd gtt 1 (jamur)\nR/ Chlorhexidine 0,02% ED fls No. I S gtt 1 o.h (Acanthamoeba)',['levofloxacin|levofloksasin','natamycin|amphotericin','chlorhexidine|klorheksidin']],
+['Ulkus Kornea',A,'Hilangnya sebagian kornea karena keradangan.','Mata merah, fotofobia, epifora, penglihatan menurun, kabur, berair, silau, nyeri hebat.','Visus menurun; palpebra DBN; konjungtiva hiperemi; kornea ulkus (+), infiltrat (+), hipopion (+); BMD/iris/pupil DBN; fluoresein (+); Seidel (+).','Keratitis, uveitis anterior','R/ Levofloxacin 0,5% ED No. I S 6 dd gtt 1 OD/OS/ODS',EDU,'R/ Levofloxacin 0,5% ED No. I\nS 6 dd gtt 1 OD/OS/ODS',['levofloxacin|levofloksasin','6 ?dd']],
+['Uveitis Anterior',A,'Keradangan di iris, badan siliaris, dan bilik mata depan.','Mata merah dan nyeri, epifora, fotofobia, blefarospasme; kabur perlahan, nrocos, silau, nyeri ngilu pada malam hari. RPD: rematik, autoimun, SLE.','Visus menurun; konjungtiva hiperemi perikorneal, kemosis; kornea edema, keratic precipitate; BMD aqueous cell, flare, hipopion; iris edema, pucat, sinekia posterior, Koeppe nodule, Busacca nodule; pupil miosis, irreguler, tertutup eksudat; TIO normal; fluoresein tidak ada (lesi di endotel).','Konjungtivitis akut, glaukoma akut','Non-medikamentosa: kompres hangat, kacamata hitam.\nR/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS\nR/ Prednisolone acetate 1% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS',EDU,'R/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS\nR/ Prednisolone acetate 1% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS',['atropin|atropine','prednisolone|prednisolon']],
+['Trauma Asam/Basa',A,'Rudapaksa mata akibat bahan kimia asam atau basa.','Mata merah, nyeri, buram, silau; terkena percikan bahan kimia, perih, sulit membuka mata, mengganjal. RSE: tidak memakai kacamata kerja.','Visus menurun; palpebra edema hiperemi; konjungtiva hiperemi, kemosis; kornea edema keruh; BMD/iris/pupil DBN; kertas lakmus: pH tergantung zat; TIO naik/turun; slit lamp: cek segmen anterior.','Trauma asam, trauma basa, trauma benda tumpul, keratitis, uveitis anterior','1. Anestesi lokal\n2. Irigasi untuk menghilangkan kontak\n3. Irigasi NaCl 0,9% minimal 1 L/mata: asam 30 menit, basa 1 jam\n4. Cek pH (normal 7,3)\n5. Irigasi lagi, cek pH tiap 15 menit bila belum normal\n6. Nilai visus\n7. RUJUK\nR/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS\nR/ Chloramphenicol 0,5% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS',EDU+' Gunakan alat pelindung mata saat bekerja dengan bahan kimia. Prognosis bergantung jenis bahan, lama kontak, kecepatan irigasi, dan derajat kerusakan kornea serta limbus.','R/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS\nR/ Chloramphenicol 0,5% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS',['atropin|atropine','chloramphenicol|kloramfenikol']],
+['Hifema Traumatik dengan Glaukoma Sekunder',A,'Akumulasi darah di bilik mata depan akibat trauma.','Mata merah, nyeri, kabur, silau; terkena bola kasti, ada bayangan merah/gelap, mual, muntah. RSE: pemain kasti.','Visus menurun jika hifema > setengah BMD; palpebra edema; konjungtiva hiperemi perikorneal; kornea abrasi (-/+); BMD hifema (staging perdarahan); iris iridoplegia, iridodialisis; pupil normal/lonjong; TIO naik.','Kontusio bulbi, abrasi kornea, trauma kimia','Non-medikamentosa: bed rest, head up 30 derajat, eye patch.\nR/ Paracetamol tab 500 mg No. X S 3 dd 1 tab p.c.\nR/ Asam traneksamat 500 mg tab No. IX S 3 dd tab I\nR/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS\nR/ Asetazolamid 250 mg tab No. XXI S 3 dd tab I\nRUJUK',EDU+' Batasi aktivitas, tidak mengangkat beban berat, hindari mengucek mata, gunakan pelindung mata.','R/ Paracetamol tab 500 mg No. X S 3 dd 1 tab p.c.\nR/ Asam traneksamat 500 mg tab No. IX S 3 dd tab I\nR/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1\nR/ Asetazolamid 250 mg tab No. XXI S 3 dd tab I',['paracetamol','traneksamat|tranexamic','atropin|atropine','asetazolamid|acetazolamide']],
+['Glaukoma Akut Sudut Tertutup',A,'Tertutupnya sudut BMD akibat peningkatan TIO secara cepat.','Mata merah, nyeri mendadak, mual, muntah, silau, pandangan tiba-tiba menyempit seperti terowongan. RPK: orang tua/saudara (+).','Visus menurun, halo sign; palpebra edema; konjungtiva injeksi silier, kemosis; kornea edema keruh; BMD dangkal, sudut tertutup; iris bombans; pupil midriasis, refleks (-); TIO naik; OCT: pilih grade 1-4.','','Non-medikamentosa: posisi supine.\nR/ Inj. Acetazolamide 500 mg No. I S per IV (TIO >50 mmHg)\nDAN R/ Timolol maleate 0,5% ED fl. No. I S 2 dd gtt I OD\nDAN R/ Prednisolone acetate 1% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS\nLALU (TIO <40 mmHg) R/ Pilocarpine 2% ED fl. No. I S 4 dd gtt I OD/OS/ODS\nRUJUK: iridotomi / iridektomi','Jelaskan penyakit pasien; batasi aktivitas; tidak mengangkat beban berat; kontrol mata rutin.','R/ Inj. Acetazolamide 500 mg No. I S per IV\nR/ Timolol maleate 0,5% ED fl. No. I S 2 dd gtt I OD\nR/ Prednisolone acetate 1% ED fl. No. I S 4 dd gtt 1\nR/ Pilocarpine 2% ED fl. No. I S 4 dd gtt I (setelah TIO <40)',['acetazolamide|asetazolamid','timolol','prednisolone|prednisolon','pilocarpine|pilokarpin']],
+['Endoftalmitis',A,'Inflamasi di dalam bola mata (vitreus/humor).','Mata merah, nyeri, kabur, silau, nrocos; setelah operasi katarak mata nyeri, merah, kabur. RPD: operasi katarak (-/+).','Visus menurun; palpebra edema; konjungtiva hiperemi; kornea edema; BMD hipopion; iris edema; pupil yellow reflex; TIO meningkat; funduskopi vitreus kabur; kultur sesuai.','','Antibiotik: R/ Vancomycin 1 gr No. II S per IV; R/ Ceftazidime 2 gr No. III S per IV\nLALU R/ Dexamethasone sodium phosphate 0,1% ED fl. No. I S 4 dd gtt I OD\nDAN R/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS\nDAN R/ Acetazolamide 250 mg tab No. XII S 3 dd 1 tab','Jelaskan penyakit pasien; kontrol mata rutin.','R/ Vancomycin 1 gr No. II S per IV\nR/ Ceftazidime 2 gr No. III S per IV\nR/ Dexamethasone sod. phosphate 0,1% ED fl. No. I S 4 dd gtt I OD\nR/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1\nR/ Acetazolamide 250 mg tab No. XII S 3 dd 1 tab',['vancomycin','ceftazidime','dexamethasone|deksametason','atropin|atropine','acetazolamide|asetazolamid']],
+['Panoftalmitis',A,'Inflamasi seluruh bola mata sampai orbita.','','','Endoftalmitis','R/ Vancomycin 1 mg/0,1 mL inj. No. I S inj. intravitreal\nDAN R/ Ceftazidime 2,25 mg/0,1 mL inj. No. I S inj. intravitreal\nDAN R/ Dexamethasone sodium phosphate 0,1% ED fl. No. I S 4 dd gtt I OD','','R/ Vancomycin 1 mg/0,1 mL inj. No. I S inj. intravitreal\nR/ Ceftazidime 2,25 mg/0,1 mL inj. No. I S inj. intravitreal\nR/ Dexamethasone sod. phosphate 0,1% ED fl. No. I S 4 dd gtt I OD',['vancomycin','ceftazidime','dexamethasone|deksametason','intravitreal']],
+['Subkonjungtiva Bleeding',B,'Perdarahan akibat pecahnya pembuluh darah antara konjungtiva dan sklera.','Mata merah, mengganjal, tidak nyaman; terjadi sehabis menyelam. RPK/RPO: operasi (-/+), memakai warfarin (-/+).','Visus normal; konjungtiva hiperemi; segmen lain DBN.','Konjungtivitis akut','Tidak perlu pengobatan (self-limiting 1-2 minggu); kompres dingin 24 jam pertama (cegah perluasan); kompres hangat setelah 24 jam; reassurance.\nR/ Occufresh ED fl. No. I S 4 dd gtt 1 OD/OS/ODS','Kondisi umumnya tidak berbahaya, sembuh sendiri 1-2 minggu; hindari mengucek mata; tidak mengangkat beban berat/mengejan; kontrol hipertensi bila ada; '+EDU,'R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS',['occufresh|artificial tears|air mata buatan','4 ?dd']],
+['Xeroftalmia',B,'Gangguan akibat kekurangan vitamin A.','Sulit melihat pada cahaya redup, mata kering, sakit.','Visus menurun saat gelap. Konjungtiva: X1A metaplasia keratinisasi, X1B bercak Bitot (foamy/cheesy). Kornea: X2 berkabut tidak bercahaya, X3A ulkus <1/3, X3B ulkus >1/3, XS putih & sikatrik. Funduskopi: XF seperti cendol. Tes adaptasi gelap (+).','','Terapi gizi; vitamin A (<6 bln 50.000 IU; <1 th 1 kapsul biru 100.000 IU; 1-5 th 1 kapsul merah 200.000 IU).\nX1A: R/ Hydroxypropyl methylcellulose 0,7% ED fl. No. I S 6 dd gtt I\nX2, X3, X3B: R/ Chloramphenicol 0,5% ED fl. No. I S 6 dd gtt 1 OD/OS/ODS DAN R/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1 OD/OS/ODS','Jelaskan penyakit pasien; penyuluhan keluarga untuk meningkatkan konsumsi vitamin A; ASI eksklusif.','R/ Hydroxypropyl methylcellulose 0,7% ED fl. No. I S 6 dd gtt I (X1A)\nR/ Chloramphenicol 0,5% ED fl. No. I S 6 dd gtt 1 (X2/X3)\nR/ Sulfas atropin 1% ED fl. No. I S 3 dd gtt 1',['hydroxypropyl|hipromelosa|hpmc','chloramphenicol|kloramfenikol','atropin|atropine']],
+['Trachoma',B,'Keratokonjungtivitis akibat Chlamydia.','','Visus normal; palpebra hiperemi, folikel/papil, trikiasis/entropion (-/+); kornea pannus; BMD/iris/pupil DBN.','','R/ Azitromisin 500 mg tab No. I S 1 dd 1 single dose\nR/ Tetrasiklin 1% ophthalmic ointment tube No. I S 2 dd ue 1 OD/OS/ODS','Jelaskan penyakit; obati seluruh keluarga; jangan berbagi handuk; cuci muka rutin; kontrol mata rutin.','R/ Azitromisin 500 mg tab No. I S 1 dd 1 single dose\nR/ Tetrasiklin 1% ophthalmic ointment tube No. I S 2 dd ue 1 OD/OS/ODS',['azitromisin|azithromycin','tetrasiklin|tetracycline']],
+['Keratokonjungtivitis Sicca',B,'Keringnya permukaan kornea dan konjungtiva.','Mata kering, gatal, merah, perih, silau, kadang berair, setelah bekerja di depan laptop. RPD: operasi mata, Sjogren, sklerosis; lensa kontak. RSE: menopause, komputer lama.','Visus normal; konjungtiva hiperemi, kering; kornea kering; Schirmer test (+) <10 mm.','','Non-medikamentosa: kompres hangat, aturan 20-20-20.\nR/ Occufresh ED fl. No. I S 4 dd gtt 1 OD/OS/ODS','Jelaskan penyakit; aturan 20-20-20: setiap 20 menit lihat benda sejauh 20 kaki selama 20 detik.','R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS',['occufresh|artificial tears|air mata buatan','4 ?dd']],
+['Episkleritis',B,'Inflamasi di episklera (lapisan: konjungtiva, episklera, tenon, sklera).','Mata merah pink, kadang nyeri; setelah makan udang, tidak ada sekret. RPD: RA (-/+).','Visus normal; konjungtiva & episklera hiperemi; tes fenilefrin (+) memucat.','Skleritis','Self-limiting; kompres dingin.\nR/ Occufresh ED fl. No. I S 4 dd gtt 1 OD/OS/ODS','',  'R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS',['occufresh|artificial tears|air mata buatan','4 ?dd']],
+['Skleritis',B,'Inflamasi di sklera.','Mata merah kebiruan, nyeri saat bergerak, silau; nyeri menjalar ke kepala sisi yang terkena. RPD: RA (-/+).','Visus normal; konjungtiva & episklera hiperemi; tes fenilefrin (-) tidak memucat.','Episkleritis','R/ Ketorolac tromethamine 0,5% ED fl. No. I S 4 dd gtt I OD','','R/ Ketorolac tromethamine 0,5% ED fl. No. I\nS 4 dd gtt I OD',['ketorolac','4 ?dd']],
+['Pterygium',B,'Penebalan konjungtiva bulbi berbentuk segitiga ke arah kornea.','Mata merah, mengganjal saat berkedip, tampak daging tumbuh di mata, mata kering. RPK: ibu (+). RSE: petani, nelayan.','Visus normal (grade 4 turun); konjungtiva hiperemi; kornea DBN kecuali grade 4 (jaringan fibrovaskular); probe/sonde test (-); slit lamp: grading.','Pseudopterygium, pinguecula, keratitis marginal','Non-farmakologi: kacamata anti UV, topi.\nR/ Occufresh ED fl. No. I S 4 dd gtt 1 OD/OS/ODS\nRUJUK: eksisi pterygium berdasarkan indikasi','Hindari paparan UV, debu, angin; pakai kacamata anti UV & topi di luar; kekambuhan bisa terjadi walau sudah operasi; '+EDU,'R/ Occufresh ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS',['occufresh|artificial tears|air mata buatan','4 ?dd']],
+['Konjungtivitis',B,'Infeksi pada konjungtiva.','Mata merah, ngeres, sulit dibuka, ada cairan (jernih encer, mukoid, mukopurulen, purulen), sulit membuka mata saat bangun tidur. Faringitis/common cold (virus); riwayat alergi (alergi); lensa kontak, berbagi handuk.','Visus normal; palpebra edema, hiperemi; konjungtiva injeksi + sekret: virus jernih encer, folikel, gatal; alergi serous, papil; vernal serous, papil raksasa, Horner-Trantas dot; bakteri/klamidia mukopurulen, Herbert pits; gonore purulen. Swab Giemsa, metilen blue, kerokan konjungtiva: eosinofil (+).','','1. Bakteri: R/ Chloramphenicol 0,5% ED fl. No. I S 6 dd gtt 1 OD/OS/ODS 3 hari ATAU Chloramphenicol 1% eye ointment tube No. I S 3 dd ue 1 3 hari\n2. Gonore: Chloramphenicol 0,5% ED 1 gtt o.h 2 hari + R/ Inj. Ceftriaxon 1 g No. I S per IV + R/ Azithromycin tab 500 mg No. II S 1 dd 2 tab single dose\n3. Klamidia: R/ Oxytetrasiklin 1% eye ointment No. I S 4 dd ue 1 3 minggu + Azithromycin 500 mg No. II single dose\n4. Alergi: R/ Sodium kromoglikat 2% ED fl. No. I S 4 dd gtt I ODS (stabilizer sel mast) + R/ Cetirizine 10 mg tab No. X S 1 dd tab I p.o.; jika berat R/ Fluorometholone 0,1% ED fl. No. I S 2 dd gtt I\n5. Virus: R/ Artificial tears ED fl. No. I S 6 dd gtt 1 OD/OS/ODS','Jaga kebersihan tangan; jangan berbagi handuk; jangan mengucek mata; hindari alergen; '+EDU,'R/ Chloramphenicol 0,5% ED fl. No. I S 6 dd gtt 1 OD/OS/ODS 3 hari (bakteri)\nR/ Sodium kromoglikat 2% ED fl. No. I S 4 dd gtt I ODS (alergi)\nR/ Artificial tears ED fl. No. I S 6 dd gtt 1 (virus)',['chloramphenicol|kloramfenikol|kromoglikat|cromoglicate|cetirizine|artificial tears|azithromycin|oxytetrasiklin','gtt|tetes|ue|salep|tab']],
+['Korpus Alienum',B,'Masuknya benda asing ke konjungtiva yang dapat menyebabkan iritasi.','Mata merah, nyeri, silau; mata kemasukan benda, ada benda asing. RSE: tidak memakai alat pelindung mata.','Visus normal; konjungtiva hiperemi, korpal (-/+); kornea korpal (-/+); fluoresein: kekeruhan (-/+); slit lamp: evaluasi letak korpal.','Benda asing kornea, benda asing konjungtiva, konjungtivitis akut','1. Eversi kelopak mata\n2. Anestesi lokal\n3. Irigasi\n4. Gunakan slit lamp\n5. Angkat korpal dengan lidi/spuit 1 cc 26G dibubuhi povidone iodine\n6. Angkat menjauhi kornea\nEye patch\nR/ Chloramphenicol 0,5% ED fl. No. I S 12 dd gtt 1 OD/OS/ODS 2 hari','Jangan mengucek mata; gunakan kacamata pelindung saat bekerja dan berkendara; kontrol mata rutin.','R/ Chloramphenicol 0,5% ED fl. No. I\nS 12 dd gtt 1 OD/OS/ODS selama 2 hari',['chloramphenicol|kloramfenikol','12 ?dd']],
+['Katarak',C,'Kekeruhan pada lensa.','Pandangan buram, silau, seperti melihat kabut, lebih nyaman membaca malam hari. RPD: diabetes (-/+). RSE: paparan UV, merokok.','Visus turun; lensa keruh; shadow test (-/+); leukokoria; refleks fundus (-); pinhole tetap; TIO naik/turun; USG: nilai retroorbital; slit lamp: evaluasi luas, tebal, kekeruhan, kekerasan.','Katarak komplikata, katarak traumatik, ablasi retina, kelainan refraksi, glaukoma, AMD','Lensa kacamata yang sesuai.\nRUJUK: operasi katarak','Jelaskan penyakit; katarak tidak hilang dengan obat/tetes mata; terapi definitif adalah operasi bila mengganggu aktivitas; kontrol penyakit penyerta (DM, hipertensi); berhenti merokok; kontrol mata berkala.','',''],
+['Glaukoma Kronis Sudut Terbuka',C,'Kerusakan nervus optikus.','Penurunan penglihatan, pusing, pandangan berubah seperti terowongan. RPD: DM, miopia. RPO: steroid. RSE: usia >40 tahun.','Visus menurun, tunnel vision; BMD tidak dangkal; TIO normal; funduskopi: cupping, bayoneting; gonioskopi: melihat sudut.','','R/ Timolol maleate 0,5% ED fl. No. I S 2 dd gtt I OD/OS/ODS\nDAN R/ Pilocarpine 2% ED fl. No. I S 4 dd gtt I OD/OS/ODS\nDAN R/ Latanoprost 0,005% ED fl. No. I S 1 dd gtt I OD/OS/ODS\nDAN R/ Asetazolamid tab 250 mg No. XII S 3 dd 1 tab','Jelaskan penyakit; kontrol mata rutin.','R/ Timolol maleate 0,5% ED fl. No. I S 2 dd gtt I\nR/ Pilocarpine 2% ED fl. No. I S 4 dd gtt I\nR/ Latanoprost 0,005% ED fl. No. I S 1 dd gtt I\nR/ Asetazolamid tab 250 mg No. XII S 3 dd 1 tab',['timolol','pilocarpine|pilokarpin','latanoprost','asetazolamid|acetazolamide']],
+['Miopia',C,'Rabun jauh.','Kabur melihat jauh, makin dekat makin jelas, pusing, nyeri kepala, memicingkan mata. RPK: orang tua, kakak (+). RSE: main HP lama, nonton TV dekat, jarang di ruang terbuka.','Visus menurun; segmen anterior DBN; Snellen chart jarak 6 m; pinhole: bila maju berarti kelainan refraksi; autorefraktometer sesuai.','Katarak, astigmatisme, ambliopia','Balita: tidak dikoreksi; prasekolah: observasi 6 bulan; usia sekolah: >1D dikoreksi; dewasa: koreksi sesuai.\nKacamata: lensa sferis negatif terkecil yang memberi visus terbaik.','Istirahat membaca/aktivitas dekat tiap 30 menit; posisi duduk tegak; penerangan cukup; menonton TV jarak 6 kaki dan batasi waktu; olahraga teratur; kontrol 1 tahun sekali (anak 6 bulan sekali).','',''],
+['Astigmatisme',C,'Perbedaan pembiasan pada tiap meridian.','Pandangan kabur, cahaya malam tampak ganda, nyeri kepala, mata lelah. RPK: orang tua, kakak (+). RSE: main HP lama.','Visus menurun, kabur; segmen anterior DBN; Snellen 6 m; pinhole; autorefraktometer; astigmatic fan test: lihat garis paling tebal setelah ditambah +20/+50.','Katarak, kelainan refraksi','Lensa silindris.','Istirahat membaca/aktivitas dekat tiap 30 menit; posisi duduk tegak; penerangan cukup; TV jarak 6 kaki; olahraga teratur; kontrol 1 tahun sekali (anak 6 bulan sekali).','',''],
+['Hordeolum',F,'Peradangan kelenjar Zeis dan Moll.','Benjolan di kelopak, mata merah, nyeri, mengganjal; keluar cairan kuning saat ditekan. RSE: sering mengucek mata, jarang membersihkan make-up mata.','Visus normal; palpebra edema, hiperemi, nyeri; segmen lain DBN.','Kalazion, dakriosistitis, selulitis preseptal','Non-farmakologi: kompres hangat 4x1 (fase selulitis); bersihkan dengan sabun bayi.\nR/ Chloramphenicol 0,5% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS 7 hari','Jelaskan penyakit; jangan menekan atau menusuk; dapat berulang, jaga kebersihan mata & tangan; hindari make-up mata dan lensa kontak.','R/ Chloramphenicol 0,5% ED fl. No. I\nS 4 dd gtt 1 OD/OS/ODS selama 7 hari',['chloramphenicol|kloramfenikol','4 ?dd']],
+['Kalazion',F,'Peradangan granulomatosa kelenjar Meibom.','Benjolan di kelopak, mata tidak merah, tidak nyeri. RSE: sering mengucek mata, jarang membersihkan make-up mata.','Visus normal; palpebra edema; segmen lain DBN.','Hordeolum, dakriosistitis, selulitis preseptal','Non-farmakologi: kompres hangat, pengurutan ke arah kelenjar Meibom.\nR/ Inj. Triamsinolon 40 mg/ml No. I S inj. intralesi\nInsisi, kuretase','Jelaskan penyakit; jangan menekan atau menusuk; dapat berulang, jaga kebersihan; hindari make-up mata dan lensa kontak.','R/ Inj. Triamsinolon 40 mg/ml No. I\nS inj. intralesi',['triamsinolon|triamcinolone','intralesi|intralesional']],
+['Blefaritis',F,'Iritasi kelopak mata dan bulu mata.','Kelopak gatal, nyeri, panas; kotoran kekuningan, bila dilepas berdarah, ada sisik yang bisa dikelupas. RSE: lupa membersihkan make-up.','Visus normal; palpebra edema, hiperemi, madarosis; segmen lain DBN.','Kalazion, dakriosistitis, selulitis preseptal','Non-farmakologi: kompres hangat; bersihkan dengan lidi dan air hangat; massage kelopak (posterior) untuk mengeluarkan isi.\nR/ Chloramphenicol 0,5% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS\nR/ Azithromycin tab 500 mg No. III S 1 dd 1 tab p.o. 3 hari','Jelaskan penyakit; bersihkan sisik/krusta dengan sabun bayi; dapat berulang, jaga kebersihan mata & tangan.','R/ Chloramphenicol 0,5% ED fl. No. I S 4 dd gtt 1 OD/OS/ODS\nR/ Azithromycin tab 500 mg No. III S 1 dd 1 tab p.o. 3 hari',['chloramphenicol|kloramfenikol','azithromycin|azitromisin']],
+['Dakrioadenitis',F,'Peradangan akut kelenjar lakrimal, biasa pada anak.','Bengkak kelopak mata dekat pelipis, nyeri; tiba-tiba saat flu.','Visus normal; palpebra edema bagian temporal, berbentuk S; segmen lain DBN.','','Kompres hangat.\nR/ Ibuprofen 400 mg tab No. XV S 3 dd tab 1\nR/ Amoxicillin-klavulanat 500 mg tab No. XXI S 3 dd tab 1\nBila ada pus: insisi dan drainase','','R/ Ibuprofen 400 mg tab No. XV S 3 dd tab 1\nR/ Amoxicillin-klavulanat 500 mg tab No. XXI S 3 dd tab 1',['ibuprofen','amoxicillin|amoksisilin|amoxicilin']],
+['Dakriosistitis',F,'Infeksi sakus lakrimalis, sering unilateral.','Air mata dan kotoran mata berlebihan, nyeri, bengkak kantus medialis; contoh bayi 1 minggu nrocos terus, banyak kotoran.','Visus normal; palpebra edema bagian nasal; segmen lain DBN.','','Kompres air hangat berulang.\nR/ Amoxicillin-klavulanat 500 mg tab No. XXI S 3 dd tab 1\nPunctum: insisi; dakriosistorinostomi; fistula: fistulektomi','','R/ Amoxicillin-klavulanat 500 mg tab No. XXI S 3 dd tab 1',['amoxicillin|amoksisilin|amoxicilin','3 ?dd']]
+];
+EYE.kasus=D.map(a=>{const[judul,kategori,deskripsi,klinis,pemeriksaan,banding,terapi,edukasi,resep,rk]=a;return{judul,diagnosis:judul,kategori,deskripsi,klinis:klinis||deskripsi,pemeriksaan,banding,terapi,edukasi,resep,rk:rk&&rk.length?rk:undefined}});
+const L=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},S=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const ext=L('osce_ext',[]);EYE.kasus.push(...ext);
+let custom=L('osce_custom',[]),cur=null,mode='baca',ci=0,q={},sc=0,done=false;
+const all=()=>[EYE,...custom],esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+$('#th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);r.dataset.theme=d?'light':'dark'};
+function home(){cur=null;known={};S('osce_known',{});app.innerHTML=`<div class="hero"><div class="fl"><span>🩺</span><span>💊</span><span>🧠</span><span>👁️</span><span>🫀</span></div><small>Selamat datang Bexie di</small><h1>Rangkuman OSCE</h1>
+<svg class="ecg" viewBox="0 0 400 46"><polyline class="ecb" points="0,24 110,24 125,24 135,6 148,42 160,24 175,24 230,24 245,24 255,10 266,38 276,24 400,24"/><polyline class="ecs" pathLength="100" points="0,24 110,24 125,24 135,6 148,42 160,24 175,24 230,24 245,24 255,10 266,38 276,24 400,24"/></svg>
+<p class="mut">Pilih materi stase. Tersedia mode baca, flashcard, kuis, dan latihan resep.</p></div>
+<div class="grid">${all().map((s,i)=>`<div class="card st" onclick="open_(${i})">${i>0?`<button class="xd" title="Hapus materi" onclick="event.stopPropagation();askDel(${i})">🗑</button>`:''}<b>🩺 ${esc(s.nama)}</b><p class="mut" style="margin:6px 0">${esc(s.deskripsi)}</p><span class="tag">${s.kasus.length} kasus</span></div>`).join('')}
+<div class="card st" style="border-left-color:var(--red);text-align:center" onclick="dlg.showModal()"><b>＋ Tambah materi stase baru</b><p class="mut">Dari file JSON</p></div></div>`}
+function curtain(n,cb){const d=document.createElement('div');d.className='cv';d.innerHTML=`<div class="cr"><svg class="st1" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg></div><svg viewBox="0 0 320 60"><path pathLength="100" d="M0,30 H90 L105,30 L120,8 L138,54 L152,30 H215 L228,30 L240,14 L252,44 L262,30 H320"/></svg><p>${esc(n)}</p><small>Menyiapkan materi...</small>`;document.body.appendChild(d);setTimeout(()=>{cb();d.classList.add('out');setTimeout(()=>d.remove(),400)},1400)}
+function open_(i,go){if(!go){curtain(all()[i].nama,()=>open_(i,1));return}cur=all()[i];cur._i=i;mode='baca';ci=0;shell();scrollTo(0,0)}
+function shell(){const t=[['baca','📖 Baca'],['fc','🗂️ Flashcard'],['kuis','❓ Kuis'],['resep','💊 Resep']];
+app.innerHTML=`<div class="row" style="margin:0 0 10px"><button class="hb" onclick="goHome(this)"><span class="hi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg></span>Beranda</button>${cur._i>0?'<button class="d" onclick="del()">Hapus</button>':''}</div>
+<h2 style="margin:6px 0;color:var(--pri2)">${esc(cur.nama)}</h2><div class="tabs">${t.map(x=>`<button class="${mode==x[0]?'on':''}" onclick="mode='${x[0]}';ci=0;shell()">${x[1]}</button>`).join('')}</div><div id="v"></div>`;
+if(!cur.kasus.length){$('#v').innerHTML='<div class="card" style="text-align:center;margin-top:14px">📋 Belum ada kasus di stase ini.</div>';return}({baca,fc,kuis,resep})[mode]()}
+const dd=$('#dd');let dIdx=0;
+function askDel(i){dIdx=i;$('#dn').textContent=all()[i].nama;dd.showModal()}
+function del(){askDel(cur._i)}
+function doDel(){const n=all()[dIdx].nama,i=dIdx;dd.close();const d=document.createElement('div');d.className='cv del';d.innerHTML=`<div class="cr"><svg class="ht" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><svg viewBox="0 0 320 60"><path class="ec" pathLength="100" d="M0,30 H50 L62,30 L74,8 L88,52 L100,30 H140 L152,30 L164,12 L176,46 L186,30 H320"/></svg><p>Materi dihapus</p><small>${esc(n)}</small>`;document.body.appendChild(d);setTimeout(()=>{custom.splice(i-1,1);S('osce_custom',custom);cur=null;home();d.classList.add('out');setTimeout(()=>d.remove(),400)},1900)}
+const SEC=[['Deskripsi','deskripsi','📖','#00a99b'],['Anamnesis / Klinis','klinis','🗣️','#4a8cf0'],['Pemeriksaan','pemeriksaan','🔎','#7c6cf6'],['Diagnosis banding','banding','🧩','#f0743c'],['Terapi','terapi','💉','#22b573'],['Resep','resep','💊','#e0568a'],['Edukasi','edukasi','🎓','#d99a00']];
+function baca(){$('#v').innerHTML=`<div class="row" style="margin:12px 0 8px"><input id="sr" placeholder="🔍 Cari kasus, diagnosis, obat..." style="flex:1;min-width:180px"><span><button class="g" id="oa">Buka semua</button> <button class="g" id="ca">Tutup semua</button></span></div><div id="ls"></div>`;
+const r=()=>{const k=$('#sr').value.toLowerCase(),h=cur.kasus.filter(c=>JSON.stringify(c).toLowerCase().includes(k));
+$('#ls').innerHTML=h.length?h.map((c,n)=>{const ss=SEC.filter(x=>c[x[1]]);return`<details class="cs" ${k?'open':''} style="--d:${n*40}ms"><summary><span class="ci">${n+1}</span><span class="ct"><b>${esc(c.judul)}</b><small>${esc(c.kategori)} · ${ss.length} bagian</small></span><span class="chev">⌄</span></summary><div class="cb">${ss.map(x=>`<details class="sc" open style="--a:${x[3]}"><summary><span>${x[2]}</span>${x[0]}<span class="chev">⌄</span></summary><p>${esc(c[x[1]])}</p></details>`).join('')}</div></details>`}).join(''):'<p class="mut">Tidak ada hasil. Coba kata kunci lain.</p>'};
+$('#sr').oninput=r;$('#oa').onclick=()=>document.querySelectorAll('#ls details.cs').forEach(d=>d.open=true);$('#ca').onclick=()=>document.querySelectorAll('#ls details.cs').forEach(d=>d.open=false);r()}
+let flip=false,known=L('osce_known',{}),bm=0;
+const kk=c=>cur.nama+':'+c.judul;
+function flipCard(){flip=!flip;const e=$('#fcd');if(!e)return;e.classList.toggle('flipped',flip);const w=e.parentNode;w.classList.remove('pw','r','l');void w.offsetWidth;w.classList.add('pw')}
+function fgo(d){const w=$('.fcw');if(!w)return;w.classList.add(d>=0?'xo':'xi');setTimeout(()=>{const n=cur.kasus.length;ci=d==0?Math.floor(Math.random()*n):(ci+d+n)%n;flip=false;fc(d>=0?'r':'l')},190)}
+function fknow(y){const c=cur.kasus[ci];if(y){if(!known[kk(c)]){known[kk(c)]=1;xp(2);bm=1}}else delete known[kk(c)];S('osce_known',known);if(y&&cur.kasus.every(x=>known[kk(x)]))pop();fgo(1)}
+function fc(dir){const c=cur.kasus[ci],n=cur.kasus.length,kn=cur.kasus.filter(x=>known[kk(x)]).length,ik=known[kk(c)];
+$('#v').innerHTML=`<div class="bar"><i style="width:${(ci+1)/n*100}%"></i></div><div class="row" style="margin:4px 0 12px"><span class="mut">Kartu ${ci+1} / ${n}</span><span class="chip2 ${bm?'bump':''}">✅ Hafal ${kn}/${n}</span></div>
+<div class="fcw ${dir||''}"><div class="fcard ${flip?'flipped':''}" id="fcd" onclick="flipCard()"><div class="face front"><div class="fi"><span class="tag">${esc(c.kategori)}</span>${ik?' <span class="tag">✅ Hafal</span>':''}<p class="fq">${esc(c.klinis)}</p><span class="hint">👆 Ketuk kartu untuk membalik</span></div></div><div class="face back"><div class="fi"><span class="tag2">Jawaban</span><h2>${esc(c.diagnosis)}</h2>${c.banding?`<p><b>DD:</b> ${esc(c.banding)}</p>`:''}${c.terapi?`<p class="ft">${esc(c.terapi)}</p>`:''}</div></div></div></div>
+<div class="row" style="justify-content:center;margin-top:18px"><button class="g" onclick="fknow(0)">Belum hafal</button><button class="ok" onclick="fknow(1)">Hafal</button></div>
+<div class="row" style="margin-top:14px"><button class="g" onclick="fgo(-1)">← Sebelumnya</button><button class="g" onclick="fgo(0)">🔀 Acak</button><button class="g" onclick="fgo(1)">Berikutnya →</button></div>`;bm=0}
+document.addEventListener('keydown',e=>{if(!cur||mode!=='fc'||!$('#fcd')||e.target.matches('input,textarea'))return;if(e.key===' '){e.preventDefault();flipCard()}if(e.key==='ArrowRight')fgo(1);if(e.key==='ArrowLeft')fgo(-1)});
+let order=[];
+function kuis(){if(cur.kasus.length<2){$('#v').innerHTML='<div class="card" style="margin-top:14px">Tambahkan minimal 2 kasus untuk memakai kuis.</div>';return}if(!order.length||ci==0&&!q.s){order=shuf(cur.kasus.map((_,i)=>i)).slice(0,15);sc=0;ci=0}q.s=1;
+if(ci>=order.length){setTimeout(()=>result(sc,order.length),450);$('#v').innerHTML=`<div class="card" style="text-align:center;margin-top:14px"><h2>${sc/order.length>=.7?'🏆':'📚'} Skor ${sc} / ${order.length}</h2><button onclick="q.s=0;ci=0;kuis()">Ulangi</button></div>`;return}
+const c=cur.kasus[order[ci]];const w=shuf(cur.kasus.filter(x=>x.diagnosis!==c.diagnosis).map(x=>x.diagnosis)).filter((x,i,a)=>a.indexOf(x)==i).slice(0,3),o=shuf([c.diagnosis,...w]);done=false;
+$('#v').innerHTML=`<div class="bar"><i style="width:${ci/order.length*100}%"></i></div><p class="mut" style="margin-top:4px">Soal ${ci+1} / ${order.length} · ⭐ Skor: ${sc}</p><div class="card"><b>Tebak diagnosis dari klinis berikut</b><p>${esc(c.klinis)}</p><p class="mut">${esc(c.pemeriksaan)}</p><div id="op">${o.map(x=>`<button class="opt" data-a="${esc(x)}">${esc(x)}</button>`).join('')}</div><div id="fb"></div></div>`;
+document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(done)return;done=true;const ok=b.dataset.a===c.diagnosis;if(ok){sc++;xp(10);pop()}document.querySelectorAll('.opt').forEach(x=>{if(x.dataset.a===c.diagnosis)x.classList.add('ok')});if(!ok)b.classList.add('no');
+$('#fb').innerHTML=`<p><b>${ok?'✅ Benar!':'❌ Belum tepat.'}</b> Kunci: ${esc(c.kunci||c.diagnosis)}</p><button onclick="ci++;kuis()">Soal berikutnya →</button>`})}
+function resep(){const rc=cur.kasus.filter(c=>c.rk);if(!rc.length){$('#v').innerHTML='<p class="mut">Materi ini belum punya soal resep.</p>';return}
+const c=rc[ci%rc.length];$('#v').innerHTML=`<p class="mut" style="margin-top:12px">Soal ${ci%rc.length+1} / ${rc.length}</p><div class="card"><span class="tag">${esc(c.kategori)}</span><p><b>Tulis resep untuk kasus berikut:</b></p><p>${esc(c.klinis)}</p><p class="mut">Diagnosis: ${esc(c.diagnosis)}</p><textarea id="rx" placeholder="R/ nama obat, konsentrasi/dosis, aturan pakai, rute (OD/OS/ODS)"></textarea><div class="row"><button id="ck">Cek Resep</button><button class="g" onclick="ci++;resep()">Soal berikutnya →</button></div><div id="fb"></div></div>`;
+$('#ck').onclick=()=>{const t=$('#rx').value.toLowerCase();const hit=c.rk.map(r=>new RegExp(r,'i').test(t));const p=Math.round(hit.filter(Boolean).length/hit.length*100);if(p==100){xp(15);pop()}
+$('#fb').innerHTML=`<p><b>Skor: ${p}%</b> (${hit.filter(Boolean).length}/${hit.length} komponen)</p><div class="sec"><h4>Contoh resep</h4><p>${esc(c.resep)}</p></div><div class="sec"><h4>Terapi</h4><p>${esc(c.terapi)}</p></div>`}}
+function norm(d){if(!Array.isArray(d.data))return d;const cats=d.cats||{};return{nama:d.title||d.nama||'Materi baru',deskripsi:d.subtitle||'',kasus:d.data.map(c=>{const an=c.anam||{},tr=c.terapi||[],rx=tr.filter(x=>x.t==='rx').map(x=>x.v),pl=tr.filter(x=>x.t!=='rx').map(x=>x.v),rk=rx.map(r=>(r.split('\n')[0].replace(/^\s*R\/\s*/i,'').replace(/^(tab|tablet|inj|kaps|cap|syr|sirup|salep|ed|ointment)\.?\s+/i,'').match(/^[A-Za-z]+/)||[''])[0]).filter(Boolean);return{judul:c.name,diagnosis:c.name,kategori:(cats[c.cat]||{}).label||'Umum',deskripsi:c.desc||'',klinis:Object.entries(an).map(e=>e[0]+': '+e[1]).join('\n'),pemeriksaan:(c.exam||[]).map(e=>e[0]+': '+e[1]).join('\n'),banding:(c.dd||[]).join(', '),terapi:(c.rujuk?['RUJUK']:[]).concat(pl).join('\n\n'),resep:rx.join('\n\n'),edukasi:(c.eduk||[]).map(x=>'• '+x).join('\n'),rk:rk.length?rk:undefined}})}}
+function tpl(){const b=new Blob([JSON.stringify({nama:'Nama Stase',deskripsi:'Deskripsi singkat',kasus:[{judul:'Judul kasus',kategori:'Kategori',deskripsi:'Pengertian singkat',klinis:'Anamnesis/klinis',pemeriksaan:'Temuan pemeriksaan',banding:'Diagnosis banding',terapi:'Tatalaksana',edukasi:'Edukasi',resep:'Contoh resep (opsional)',rk:['kata|kunci|obat','gtt|tetes']}]},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='template-stase.json';a.click()}
+function saveJ(){try{const d=norm(JSON.parse($('#ta').value));if(!d.nama||!Array.isArray(d.kasus)||!d.kasus.length)throw 0;d.deskripsi=d.deskripsi||'';d.kasus=d.kasus.map(c=>({...c,diagnosis:c.diagnosis||c.judul,kategori:c.kategori||'Umum',klinis:c.klinis||c.deskripsi||''}));custom.push(d);S('osce_custom',custom);dlg.close();$('#ta').value='';saved(d.nama,custom.length)}catch(e){alert('Format JSON tidak dikenali. Pastikan JSON valid dan punya "nama" + "kasus" (atau "title" + "data"). Unduh template untuk contoh.')}}
+$('#f').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(t=>$('#ta').value=t)};
+function saved(n,i){const k=custom[i-1].kasus.length,cl=['#ff6b6b','#ffc84a','#22b573','#4a8cf0','#7c6cf6','#ff8a5b'],d=document.createElement('div');d.className='sx';
+d.innerHTML=`<div class="sxc"><div class="sxr"><svg viewBox="0 0 120 120"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00c9b7"/><stop offset="1" stop-color="#7c6cf6"/></linearGradient></defs><circle class="rb" cx="60" cy="60" r="50"/><circle class="rp" cx="60" cy="60" r="50" pathLength="100"/><circle class="rf" cx="60" cy="60" r="42"/><path class="rc" pathLength="100" d="M40 61l14 14 27-30"/></svg>${cl.concat(cl).map((c,j)=>`<i class="sp" style="--a:${j*30}deg;background:${c}"></i>`).join('')}</div><div class="sxt">Materi tersimpan!</div><p class="sxs">${esc(n)}</p><div class="sxch"><span style="animation-delay:1.5s">📋 ${k} kasus</span><span style="animation-delay:1.65s">⭐ +20 XP</span></div><div class="sxb"><i></i></div></div>`;
+document.body.appendChild(d);xp(20);setTimeout(pop,1150);setTimeout(()=>{open_(i,1);d.classList.add('out');setTimeout(()=>d.remove(),400)},2300)}
+let gh=0;function goHome(b){if(gh)return;gh=1;b.classList.add('go');const r=b.getBoundingClientRect(),d=document.createElement('div');d.className='iris';d.style.setProperty('--x',(r.left+r.width/2)+'px');d.style.setProperty('--y',(r.top+r.height/2)+'px');
+const em=['🩺','💊','❤️','🧠','👁️','💉','⭐'];
+d.innerHTML=`<div class="ih"><svg viewBox="0 0 24 24"><path pathLength="100" d="M3 11.5L12 3.5l9 8"/><path pathLength="100" d="M5.5 10v10.5h13V10"/><path pathLength="100" d="M12 12.5v5M9.5 15h5"/></svg></div><p class="it">Beranda</p><div class="dots"><i></i><i></i><i></i></div>${em.map((e,i)=>`<span class="pt" style="left:${8+i*13}%;animation-delay:${.15+i*.07}s">${e}</span>`).join('')}`;
+setTimeout(()=>document.body.appendChild(d),100);
+setTimeout(()=>{home();scrollTo(0,0);d.classList.add('out');setTimeout(()=>{d.remove();gh=0},560)},1250)}
+function result(s,n){const hi=s/n>=.7,st=hi?(s/n>=.9?3:2):(s/n>=.4?1:0),d=document.createElement('div');d.className='sx rs';
+const em=hi?['🎉','⭐','🏆','✨','💊','🩺']:['💪','✨','📚','🩺','☕','💡'];
+d.innerHTML=`<div class='sxc rc ${hi?'hi':'lo'}'><div class='rem'>${hi?'🏆':'💪'}</div><div class='rt'>${hi?'Congrats Capii! 🎉':'Semangat lagii Capii!'}</div><p class='rpp'>${hi?'Pinter banget dapet nilai bagus':'Nilainya biar dapet bagus'}</p><div class='rsn'><b id='rn'>0</b> / ${n}</div><div class='stars'>${[0,1,2].map(i=>`<span class='${i<st?'on':''}' style='animation-delay:${.5+i*.25}s'>★</span>`).join('')}</div><div class='row' style='justify-content:center;gap:10px;margin-top:6px'><button class='g' id='rx'>Tutup</button><button id='ra'>${hi?'Main lagi':'Coba lagi'}</button></div></div>${em.map((e,i)=>`<span class='pt' style='left:${6+i*16}%;animation-delay:${.2+i*.15}s;animation-duration:${hi?1.3:2.4}s'>${e}</span>`).join('')}`;
+document.body.appendChild(d);
+const cl=f=>{d.classList.add('out');setTimeout(()=>{d.remove();f&&f()},350)};
+$('#rx').onclick=()=>cl();$('#ra').onclick=()=>cl(()=>{q.s=0;ci=0;kuis()});d.onclick=e=>{if(e.target===d)cl()};
+let k=0;const t=setInterval(()=>{k++;$('#rn').textContent=Math.min(s,Math.round(s*k/12));if(k>=12)clearInterval(t)},60);
+if(hi){xp(25);pop();setTimeout(pop,700)}}
+function xp(n){let x=L('osce_xp',0)+n,d=new Date().toDateString(),s=L('osce_streak',{d:'',n:0});if(n&&s.d!==d){s.n=(s.d===new Date(Date.now()-864e5).toDateString()?s.n:0)+1;s.d=d;S('osce_streak',s)}S('osce_xp',x);$('#xp').textContent='🔥'+s.n+' · Lv'+(Math.floor(x/100)+1)+' · '+x+' XP'}
+function pop(){const e=['✨','💊','🩺','⭐','💉','🎉'];for(let i=0;i<18;i++){const s=document.createElement('span');s.className='pp';s.textContent=e[i%6];s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*.4+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),2000)}}
+xp(0);home();
+</script></body></html>
